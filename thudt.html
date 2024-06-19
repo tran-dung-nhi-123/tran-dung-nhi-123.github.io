@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="Trangchinh/logo.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="Trangchinh/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add this to your head -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <link href="../Trangchinh/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3&display=swap">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+    <link href="../Trangchinh/css/style.css" rel="stylesheet">
+
+
+    <title>Sản phẩm</title>
+    <style>
+        .color-circle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .navy-circle {
+            background-color: navy;
+        }
+
+        .white-circle {
+            background-color: white;
+        }
+
+
+        .carousel-inner img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-info-container {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-blue {
+            background-color: #8ABDE8 ;
+            color: white;
+        }
+
+        /* Custom styles for Section 2 */
+        .product-detail-container {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+        }
+
+        .product-detail-image {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-detail-content {
+            margin-top: 20px;
+        }
+
+        .product-detail-content h4 {
+            color: #333;
+        }
+
+        /* Styling for the active content */
+        .product-detail-content.active {
+            display: block;
+        }
+
+        .product-info-container {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            border-bottom: 2px dashed #ccc;
+            /* Add dashed border */
+        }
+
+        .product-detail-container {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Optional: Add some spacing between sections */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for Section 3: Featured Products */
+        .container.my-5 {
+            background-color: #f8f9fa;
+            /* Set a background color for the section */
+            padding: 30px;
+        }
+
+        h3.text-center {
+            color: #7BB4E4;
+            /* Set heading color to pink */
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Style for Featured Product Cards */
+        .card {
+            transition: transform 0.2s;
+            /* Add a smooth transition effect on hover */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            /* Increase size on hover */
+        }
+
+        .card-img-top {
+            max-height: 350px;
+            /* Set a maximum height for the product images */
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            /* Increase font size for the product title */
+            margin-bottom: 0.5em;
+        }
+
+        .card-text {
+            color: #6c757d;
+            /* Set a color for the text */
+        }
+
+        .card-link {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: #000000;
+            /* Set link color */
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+            /* Underline on hover */
+        }
+
+        /* Style for Rating Stars */
+        .card-text .rating-star {
+            color: #ffc107;
+            /* Set rating star color to yellow */
+        }
+
+        .zoom {
+            overflow: hidden;
+            width: 100%;
+            /* Thêm thuộc tính width để điều chỉnh kích thước ban đầu của figure */
+        }
+
+        .zoom img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            /* Thêm thuộc tính width để điều chỉnh kích thước ban đầu của ảnh */
+        }
+
+        .zoom:hover img {
+            transform: scale(1.2);
+        }
+        input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+            font-size: 1em;
+            color: #545454;
+        }
+    </style>
+    <style>
+        /* Đặt lại margin và padding mặc định */
+        /*
+        body, html {
+            margin: 0;
+            padding: 0;
+        }*/
+
+        /* header styles */
+        header {
+            color: white;
+            background: url(anh2.png) no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 13em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0; /* Đặt lại margin cho h1 */
+            padding-top: 0.2em; /* Thay đổi margin-top bằng padding-top */
+        }
+
+        header p {
+            margin: 0; /* Xóa margin của phần tử p */
+            padding-top: 1.7em; /* Thêm padding-top để tạo khoảng cách */
+        }
+
+        /* nav styles */
+        nav, footer {
+            font-family: verdana, sans-serif;
+            background-color: #8ABDE8; /* Thay đổi màu nền thành #8ABDE8 */
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Dãn đều các mục li */
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: .8em;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            flex: 1;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            border: none; /* Loại bỏ viền */
+            padding: .5em 1em;
+            border-radius: .5em;
+            margin: .25em;
+            text-decoration: none; /* bỏ gạch chân */
+            color: #000; /* Đổi màu chữ thành đen */
+        }
+
+        /* Sub-menu styles */
+        nav ul li ul {
+            display: none; /* Ẩn sub-menu */
+            position: absolute;
+            top: 100%; /* Đặt sub-menu ngay dưới mục chính */
+            left: 5%;
+            background-color: #8ABDE8; /* Màu nền của phần thả xuống */
+            border: 1px solid #ccc;
+            padding: 10px;
+            list-style-type: none;
+            z-index: 1;
+        }
+
+        nav ul li:hover ul {
+            display: block; /* Hiển thị sub-menu khi di chuột vào mục chính */
+        }
+
+        nav ul li ul li {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.7em; /* Kích thước chữ nhỏ hơn */
+            font-family: verdana, sans-serif; /* Đảm bảo kiểu chữ giống nhau */
+        }
+
+        nav ul li ul li a {
+            color: #000; /* Đổi màu chữ thành đen */
+            text-decoration: none; /* Bỏ gạch chân trong sub-menu */
+            padding: .2em .5em;
+            border: none; /* Loại bỏ viền */
+            border-radius: 0; /* Loại bỏ border-radius */
+            display: block;
+            font-family: verdana, sans-serif; /* Cùng kiểu chữ */
+            font-size: 1.5em; /* Đảm bảo kích thước chữ nhỏ hơn */
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #8ABDE8; /* Thay đổi màu nền khi di chuột */
+            color: #fff; /* Đổi màu chữ khi di chuột */
+        }
+
+        /* main "products" styles */
+        main {
+            font-size: 1em;
+            line-height: 1.4em;
+            color: #555;
+            margin: 2.5%;
+        }
+
+        h2 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: 1.5em;
+        }
+
+        p.more {
+            font-family: verdana, sans-serif;
+            text-transform: uppercase;
+            font-size: .8em;
+            clear: left;
+        }
+
+        main img {
+            display: block;
+            margin: .5em auto;
+        }
+
+        /* aside "hours" styles */
+        aside {
+            background: url(images/scallop_top.png) repeat-x left top;
+            background-color: #F6F3ED;
+            padding: 1em;
+        }
+
+        /* misc styles */
+        footer {
+            color: #EADDC4;
+            text-align: center;
+            font-size: .8em;
+            padding: 1em;
+        }
+
+        .day {
+            color: #783F27;
+            font-family: verdana, sans-serif;
+            font-size: .8em;
+            text-transform: uppercase;
+        }
+
+        .linelength {
+            background: yellow;
+        }
+
+        @media screen and (min-width: 400px) {
+            nav ul li {
+                flex: none;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (min-width: 480px) {
+            main img {
+                float: left;
+                margin: 0 1em 1em 0;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            header p {
+                display: block;
+                margin-top: -1.5em;
+                font-family: Georgia, serif;
+                font-style: italic;
+                font-size: 1.2em;
+            }
+
+            main, h2{
+                font-family: 'Stint Ultra Expanded', Georgia, serif;
+            }
+
+            h2, h3 {
+                font-weight: bold;
+            }
+
+            main {
+                line-height: 1.8em;
+                padding: 1em;
+                border: double 4px #EADDC4;
+                border-radius: 25px;
+                margin: 2.5%;
+            }
+        }
+
+        @media screen and (min-width: 940px) {
+            #container {
+                display: grid;
+                grid-template-rows: auto min-height 5em;
+                grid-template-columns: minmax(25em, 1fr) 16em;
+                grid-template-areas:
+                    "banner banner"
+                    "main hours"
+                    "footer footer";
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            header {
+                grid-area: banner;
+            }
+
+            main {
+                grid-area: main;
+            }
+
+            aside {
+                grid-area: hours;
+                background: url(images/scallop.png) repeat-y left top;
+                background-color: #F6F3ED;
+                padding: 1em;
+                padding-left: 45px;
+            }
+
+            footer {
+                grid-area: footer;
+            }
+
+            #award {
+                position: absolute;
+                top: 30px;
+                left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Black Goose Bakery</h1>
+        <p>The delicious baked goods you love at Black Goose Bistro...now available to go!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="">SẢN PHẨM</a>
+                <ul>
+                    <li><a href="#">Áo khoác</a></li>
+                    <li><a href="#">Váy</a></li>
+                    <li><a href="#">Quần dài</a></li>
+                    <li><a href="#">Chân váy</a></li>
+                    <li><a href="#">Quần đùi</a></li>
+                </ul>
+            </li>
+            <li><a href="">CONTACT</a></li>
+            <li><a href="">VỀ CHÚNG TÔI</a></li>
+            <li><a href="">KHUYẾN MÃI</a></li>
+        </ul>
+    </nav>
+    <!--Header 1-->
+  
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Image Slider -->
+                <div id="product-slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay.png" alt="Clothes">
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay2.png" alt="Clothes">
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay1.png" alt="Clothes">
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay3.png" alt="Clothes">
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay4.png" alt="Clothes">
+                            </figure>
+                        </div>
+                        <div class="carousel-item">
+                            <figure class="zoom" onmousemove="zoom(event)">
+                                <img src="vay5.png" alt="Clothes">
+                            </figure>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#product-slider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 product-info-container">
+                <!-- Product Details -->
+                <h2>Cheezy Jumpsuit</h2>
+                <p class="text-muted">Màu Sắc:</p>
+                <p>
+                    <span class="color-circle navy-circle"></span>
+                    <span class="color-circle white-circle"></span>
+                </p>
+                <p>
+                    <strong>Giá:</strong>
+                    <del class="text-muted">942,000đ</del>
+                    <span class="text-danger">520,000đ (Giảm Giá)</span>
+                </p>
+                <div class="form-group">
+                    <label for="colorSelect">Chọn Màu:</label>
+                    <select class="form-control" id="colorSelect">
+                        <option value="navy">Navy</option>
+                        <option value="white">White</option>
+                    </select>
+                    <label for="colorSelect">Size:</label>
+                    <select class="form-control" id="colorSelect">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                    </select>
+                    <label for="quantity1">Số lượng:</label>
+                    <br><input type="number" id="quantity1" name="quantity1" min="1" value="1">
+                    <!-- Rating Stars -->
+                    <div class="mb-3">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                        <!-- Add more stars based on the rating -->
+                    </div>
+                    <button class="btn btn-blue">Thêm Vào Giỏ Hàng</button>
+                </div>
+            </div>
+        </div>
+        <!-- Section 2: Product Details -->
+        <section class="container my-5 product-detail-container">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <!-- Product Detail Image -->
+                    <img src="vay.png" alt="Image"
+                        class="img-fluid product-detail-image">
+                </div>
+                <div class="col-md-6">
+                    <!-- Content Description with Tabs -->
+                    <h3> Một Số Thông Tin Thêm</h3>
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="information-tab" data-toggle="tab" href="#information"
+                                role="tab" aria-controls="information" aria-selected="true">Thông Tin </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab"
+                                aria-controls="privacy" aria-selected="false">Kích cỡ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                aria-controls="contact" aria-selected="false">Chính Sách Vận Chuyển</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-3">
+                        <!-- Information Section -->
+                        <div class="tab-pane fade show active" id="information" role="tabpanel"
+                            aria-labelledby="information-tab">
+                            <h4>Thông Tin</h4>
+                            <p>
+                              🌼 CHEEZY JUMPSUIT 🌼
+                              <div>Jumpsuit được may bằng chất liệu vải thô lụa mềm mát, có độ dày vừa phải tạo độ bồng bềnh. Nền vải thêu hoa xinh xắn.</div>
+                              <div>Điểm nhấn là phần cổ ren hoa to bản được thêu tỉ mỉ.</div>
+                              <div>Jumpsuit được thiết kế bên ngoài giống váy, bên trong có quần.</div>
+                              <div>Chiều dài: 78cm.</div>
+                              <div>Sản xuất theo kích thước châu Á. Vui lòng tham khảo Hướng dẫn kích thước để chọn kích thước của bạn.</div>
+                              <div>Size L của sản phẩm này chỉ cho phép đặt hàng trước. Sẽ mất thêm 10 ngày để xử lý đơn hàng có kích thước L trong nội dung.</div>
+                              <div>Xuất xứ: Việt Nam.</div>
+                            </p>
+                        </div>
+
+                        <!-- Privacy Section -->
+                        <div class="tab-pane fade" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
+                            <h4>Kích cỡ</h4>
+                            <p>Sản xuất theo kích thước châu Á. Vui lòng tham khảo biểu đồ kích thước này cho các mặt hàng của bạn. Số đo hiển thị bằng (cm). </p>
+                            <img alt="size" src="size.png"/>
+
+                        </div>
+
+                        <!-- Contact Section -->
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <h4>Chính Sách Vận Chuyển</h4>
+                            <p>Chúng tôi gửi tất cả các đơn đặt hàng trong 5 ngày làm việc. Nếu đơn đặt hàng của bạn được thực hiện theo yêu cầu, vui lòng chờ đợi thời gian xử lý lâu hơn.
+                            <br>- Vận chuyển nội địa từ 5-8 ngày.
+                            <br>- Vận chuyển quốc tế là 8-21 ngày.
+                            <div>Sau khi gói hàng được gửi đi, phí vận chuyển sẽ không được hoàn lại.</div>
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 3: Featured Products -->
+        <section class="container my-5">
+            <h3 class="text-center mb-4">Sản Phẩm Liên Quan</h3>
+            <div class="row">
+                <!-- Featured Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <a href="GK02.html" class="card-link">
+                        <div class="card">
+                            <img src="vay6.png" class="card-img-top" alt="Featured Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Miley Dress</h5>
+                                <p class="card-text">Giá: 350,000đ</p>
+                                <p class="card-text">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Featured Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <a href="GK03.html" class="card-link">
+                        <div class="card">
+                            <img src="vay7.png" class="card-img-top" alt="Featured Product 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Reina Dress</h5>
+                                <p class="card-text">Giá: 800,000đ</p>
+                                <p class="card-text">&#9733; &#9733; &#9733; &#9734; &#9734;</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Featured Product 4 -->
+                <div class="col-md-4 mb-4">
+                    <a href="GK04.html" class="card-link">
+                        <div class="card">
+                            <img src="vay8.png" class="card-img-top" alt="Featured Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Macy Dress</h5>
+                                <p class="card-text">Giá: 350,000đ</p>
+                                <p class="card-text">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+         </div>
+        </section>
+
+
+        <!-- Bootstrap JS and Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- jQuery script -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script>
+            // JavaScript for zoom effect
+            function zoom(event) {
+                var zoomer = event.currentTarget;
+                var img = zoomer.querySelector('img');
+                x = event.offsetX / zoomer.offsetWidth * 100;
+                y = event.offsetY / zoomer.offsetHeight * 100;
+                img.style.transformOrigin = x + '% ' + y + '%';
+            }
+        </script>
+        </script>
+</body>
+
+</html>
