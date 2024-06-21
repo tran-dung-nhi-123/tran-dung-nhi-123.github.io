@@ -30,15 +30,15 @@ body {
     margin-right: 20px;
 }
 
-.product-table th, .product-table td {
+/* .product-table th, .product-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-}
+} */
 
-.product-table th {
+/* .product-table th {
     background-color: #f2f2f2;
-}
+} */
 
 .product-table img {
     width: 80px;
@@ -55,6 +55,10 @@ body {
 
 .remove-btn {
     color: #ff4d4d;
+}
+.remove-btn:hover {
+    background-color: #ff4d4d;
+    color: white;
 }
 
 .promo-btn {
@@ -119,24 +123,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.gio-hang-trong {
-    text-align: left;
-    padding: 20px;
-}
-
-.gio-hang-trong p {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.gio-hang-trong button {
-    background-color: #aad6f3;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
 .sanpham {
     margin-top: 40px;
 }
@@ -192,16 +178,6 @@ body {
 
 .product-item button:hover {
     background-color: #7fbfea;
-}
-
-.giohangcohang {
-    width: 80%;
-    background-color: #fff;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .cart-header {
@@ -308,7 +284,7 @@ body {
 }
 
 /* Responsive styles for tablets and smaller devices */
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .trangchu {
         margin: 20px 10px;
     }
@@ -333,18 +309,18 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .container {
         flex-direction: column;
     }
 
     .product-table {
-        width: 100%;
+        width: 70%;
         margin-right: 0;
     }
 
     .summary {
-        width: 100%;
+        width: 70%;
         margin-top: 20px;
     }
 
