@@ -615,7 +615,6 @@ header {
   content: "";
   width: 255px;
   height: 217px;
-  background-image: url("../images/dots-green.svg");
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translate(-40%, -40%);
@@ -977,7 +976,7 @@ header {
 }
 
 .footer-section .custom-social li a:hover {
-  background: #f7afaf;
+  background: #8ABDE8;
   color: #ffffff;
 }
 
