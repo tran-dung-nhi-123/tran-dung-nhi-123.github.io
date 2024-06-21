@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+    <style>
+        /* CSS chỉnh giao diện trang */
+		  @import url(TKW.css);
+		  @import url(bootstrap.css);
+        /* GIAO DIỆN THANH TOÁN */
+        body {
+    font-family: "Inter", sans-serif;
+}
+.thanhtoan {
+    position: absolute;
+    top: 0px;
+    right: 160px;
+    font-size: 22px;
+}
+.thanhtoanfull {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 150px 0px 100px;
+    gap: 10px;
+}
+.order-summary {
+    border: 1px solid #3f96de;
+    padding: 20px 20px 5px 20px;
+    margin: 30px 0 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.shipping-info {
+    border: 1px solid #3f96de;
+    padding: 20px 20px 5px 20px;
+    margin: 30px auto 20px 120px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.shipping-info {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+.order-summary {
+    flex-basis: 35%;
+}
+.shipping-info h2, .order-summary h2 {
+    text-align: center;
+    font-size: 25px;
+    color: #3f96de;
+}
+.shipping-info form div, .order-summary div {
+    margin-bottom: 15px;
+}
+.shipping-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.shipping-info input, .shipping-info select, .shipping-info textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 13px;
+    border: 1px solid #3f96de;
+    background-color: transparent;
+}
+.order-summary img {
+    width: 100px;
+    height: 100px;
+}
+.order-summary .product {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.order-summary table td {
+    padding: 5px 0;
+}
+.order-summary .total {
+    color: red;
+    font-weight: bold;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+.buttons a, .buttons button {
+    background-color: transparent;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid #3f96de;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    flex: 1;
+    margin-right: 5px;
+}
+.buttons a:last-child, .buttons button:last-child {
+    margin-right: 0;
+}
+.buttons a:hover, .buttons button:hover {
+    background-color: #7fbfea;
+}
+.buttons a.full-width {
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    .thanhtoan {
+        top: 10px;
+        right: 10px;
+    }
+    .thanhtoanfull {
+        flex-direction: column;
+        margin: 20px;
+    }
+    .shipping-info, .order-summary {
+        flex: 1;
+        min-width: 300px;
+        margin: 10px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .button-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .buttons a, .buttons button {
+        margin-right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .shipping-info, .order-summary {
+        margin: 10px 0;
+    }
+}
+/* Popup container */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+/* Popup content */
+.popup-content {
+    background-color: #f4adc8;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+    position: relative;
+}
+.popup h3 {
+    text-align: center;
+    font-size: 23px;
+    color: #1a1c1e;
+}
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f25993;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.popup img {
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+    </style>
+</head>
+<body>
+<!-- <div class="thanhtoan">Thanh toán</div> -->
+<div class="thanhtoanfull">
+    <div class="shipping-info">
+        <h2>THÔNG TIN GIAO HÀNG</h2>
+        <form action="">
+            <div>
+                <label for="hoten">Họ tên *</label>
+                <input type="text" id="hoten" name="hoten" required>
+            </div>
+            <div>
+                <label for="phone">Điện thoại *</label>
+                <input type="tel" id="phone" name="phone" placeholder="VD: 0949999999" required>
+            </div>
+            <div>
+                <label for="tp">Tỉnh/Thành phố *</label>
+                <select id="tp" name="tp" required onchange="updateQuan()"">
+                    <option value="">Chọn tỉnh/thành phố</option>
+                    <option value="Hanoi">Hà Nội</option>
+                    <option value="HoChiMinh">TP. Hồ Chí Minh</option>
+                    <option value="NinhBinh">Ninh Bình</option>
+                </select>
+            </div>
+            <div>
+                <label for="quan">Quận/Huyện *</label>
+                <select id="quan" name="quan" required>
+                    <option value="">Chọn quận/huyện</option>
+                </select>
+            </div>
+            <div>
+                <label for="phuong">Phường/Xã *</label>
+                <input type="text" id="phuong" name="phuong" required>
+                </select>
+            </div>
+            <div>
+                <label for="diachi">Địa chỉ chi tiết *</label>
+                <input type="text" id="diachi" name="diachi" required>
+            </div>
+            <div>
+                <label for="note">Lời nhắn</label>
+                <textarea id="note" name="note"></textarea>
+            </div>
+            <script>
+                const quan = {
+                Hanoi: ["Hoàn Kiếm", "Ba Đình", "Hai Bà Trưng"],
+                HoChiMinh: ["Quận 1", "Quận 2", "Quận 3"],
+                NinhBinh: ["Yên Khánh", "Hoa Lư", "Yên Mô"]
+            };
+    
+            function updateQuan() {
+                const tpSelect = document.getElementById("tp");
+                const quanSelect = document.getElementById("quan");
+                const selectedTp = tpSelect.value;
+    
+                // Xóa các quận/huyện hiện có
+                quanSelect.innerHTML = '<option value="">Chọn quận/huyện</option>';
+    
+                if (quan[selectedTp]) {
+                    quan[selectedTp].forEach(quan => {
+                        const option = document.createElement("option");
+                        option.value = quan;
+                        option.textContent = quan;
+                        quanSelect.appendChild(option);
+                    });
+                }
+            }
+    
+            function goBack() {
+                window.history.back();
+            }
+            </script>
+        </form>
+    </div>
+
+    <div class="order-summary">
+        <h2>ĐƠN HÀNG (2 sản phẩm)</h2>
+        <div class="product">
+            <img src="D:\Anh\Penelope Top.png" alt="Penelope Top">
+            <p>Penelope Top</p>
+            <p>520.000 VND</p>
+        </div>
+        <div class="product">
+            <img src="D:\Anh\Gina Top.webp" alt="Gina Top">
+            <p>Gina Top</p>
+            <p>558.000 VND</p>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Tạm tính:</td>
+                    <td>1.187.000 VND</td>
+                </tr>
+                <tr>
+                    <td>Chiết khấu:</td>
+                    <td>0 VND</td>
+                </tr>
+                <tr>
+                    <td>Mã giảm giá:</td>
+                    <td>0 VND</td>
+                </tr>
+                <tr>
+                    <td>Phí vận chuyển:</td>
+                    <td>22.000 VND</td>
+                </tr>
+                <tr>
+                    <td class="total">Tổng số tiền thanh toán:</td>
+                    <td class="total">1.209.000 VND</td>
+                </tr>
+            </table>
+        </div>
+        <div class="buttons">
+            <div class="button-row">
+                <button type="button" onclick="openPopup()">Thanh toán</button>
+                <button type="button" onclick="openSuccessPopup()">Thanh toán khi nhận hàng</button>
+            </div>
+            <a href="DanhmucSp.html">Tiếp tục mua hàng</a>
+        </div>
+    </div>
+</div>
+<!-- Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img src="D:\Anh\thanhtoan.png" alt="Thông tin tài khoản">
+    </div>
+</div>
+
+<!-- Success Popup -->
+<div id="successPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img src="D:\Anh\thankyou.png" alt="Thank You">
+    </div>
+</div>
+
+<script>
+    // Mở popup
+    function openPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    // Đóng popup
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("successPopup").style.display = "none";
+    }
+
+    // Mở success popup khi double click ra ngoài popup hiện tại
+    window.ondblclick = function(event) {
+        const popup = document.getElementById("popup");
+        if (popup.style.display === "block") {
+            closePopup();
+            document.getElementById("successPopup").style.display = "block";
+        }
+    }
+
+    // Mở success popup khi click vào button "Thanh toán khi nhận hàng"
+    function openSuccessPopup() {
+        document.getElementById("successPopup").style.display = "block";
+    }
+</script>
+
+</script>
+<!-- FOOTER -->
+     <!-- Start Footer Section -->
+     <footer class="footer-section">
+        <div class="container relative">
+    
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="subscription-form">
+                <h3 class="d-flex align-items-center">
+                  <span>Hãy gửi phản hồi cho chúng tôi nếu sản phẩm của bạn có vấn đề</span></h3>
+                <form action="#" class="row g-3">
+                  <div class="col-auto">
+                    <input type="text" class="form-control" placeholder="Enter your name">
+                  </div>
+                  <div class="col-auto">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                  </div>
+                  <div class="col-auto">
+                    <button class="btn btn-primary">
+                      <span class="fa fa-paper-plane"></span>
+                    </button>
+                  </div>
+                </form>
+    
+              </div>
+            </div>
+          </div>
+    
+          <div class="row g-5 mb-5">
+            <div class="col-lg-4">
+              <div class="mb-4 footer-logo-wrap"><a href="index.html" class="footer-logo">BLUE&BLINK</a></div>
+              <p class="mb-4">Chúng tôi mong rằng trải nghiệm ở Blue&Blink sẽ khiến bạn hài lòng.
+                Sự đảm bảo chất lượng sản phẩm và chính sách bảo hành tốt là những yếu tố quan trọng
+                mà chúng tôi hướng đến. Đồng thời, chúng tôi cũng tự hào là cửa hàng cung cấp sản phẩm thời trang nữ
+                hợp xu hướng với giá tốt trên thị trường.
+              </p>
+    
+              <ul class="list-unstyled custom-social">
+                <li><a href="https://www.facebook.com/blueblink062024" target="_blank">
+                  <span class="fa fa-brands fa-facebook-f"></span></a></li>
+                <li><a href="https://www.tiktok.com" target="_blank">
+                  <span class="fa fa-brands fa-tiktok"></span></a></li>
+                <li><a href="https://www.instagram.com/blueblink062024?igsh=NHI3OHRicG42dWx5&utm_source=qr" target="_blank">
+                  <span class="fa fa-brands fa-instagram"></span></a></li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-8">
+              <div class="row links-wrap">
+                <div class="col-6 col-sm-6 col-md-3">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p style="color: black;"><b>Tất cả sản phẩm</b></p>
+                    </li>
+                    <li><a href="#">Áo khoác</a></li>
+                    <li><a href="#">Váy</a></li>
+                    <li><a href="#">Áo</a></li>
+                    <li><a href="#">Quần & Chân váy</a></li>
+                    <li><a href="#">Áo liền quần</a></li>
+                    <li><a href="#">Phụ kiện</a></li>
+                  </ul>
+                </div>
+    
+                <div class="col-6 col-sm-6 col-md-3">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p style="color: black;"><b>Chính sách mua hàng</b></p>
+                    </li>
+                    <li><a href="#">Hình thức thanh toán</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                  </ul>
+                </div>
+    
+                <div class="col-6 col-sm-6 col-md-3">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p style="color: black;"><b>Thông tin liên hệ</b></p>
+                    </li>
+                    <li><a href="#">Hotline: 0344165567</a></li>
+                    <li><a href="#">Email: blueblink062024@gmail.com</a></li>
+                    <li><a href="#">Địa chỉ: số 12 Chùa Bộc, Quang Trung, Đống Đa, Hà Nội </a></li>
+    
+                  </ul>
+                </div>
+    
+                <div class="col-6 col-sm-6 col-md-3">
+                  <ul class="list-unstyled">
+                    <li>
+                      <p style="color: black;"><b>Về chúng tôi</b></p>
+                    </li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+      </footer>
+</body>
+</html>

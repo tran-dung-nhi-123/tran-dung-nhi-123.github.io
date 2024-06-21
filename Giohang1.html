@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="stylegiohang1.css">
+</head>
+<body>
+    <div class="trangchu">
+        <a href="trangchu">Trang chủ</a> &gt; <a href="giohang">Giỏ hàng</a>
+    </div>
+    <div class="giohang">
+    <div class="container">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng cộng</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                <tr>
+                    <td><img src="D:\Anh\Gina Top.webp" alt="Gina Top"></td>
+                    <td>Gina Top</td>
+                    <td>423.000 VND</td>
+                    <td>
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                    </td>
+                    <td>423.000 VND</td>
+                    <td><button class="remove-btn" onclick="removeProduct(this)">x</button></td>
+                </tr>
+                <tr>
+                    <td><img src="D:\Anh\Eleanor Top.webp" alt="Eleanor Top"></td>
+                    <td>Elenor Top</td>
+                    <td>519.000 VND</td>
+                    <td>
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                    </td>
+                    <td>519.000 VND</td>
+                    <td><button class="remove-btn" onclick="removeProduct(this)">x</button></td>
+                </tr>
+                <tr>
+                    <td><img src="D:\Anh\Valeria Dress.webp" alt="Valeria Dress"></td>
+                    <td>Valeria Dress</td>
+                    <td>519.000 VND</td>
+                    <td>
+                        <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                    </td>
+                    <td>519.000 VND</td>
+                    <td><button class="remove-btn" onclick="removeProduct(this)">x</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="summary">
+            <div class="promo-code">
+                <button class="promo-btn" onclick="setPromoCode('KM_LeafLife20K')">KM_LeafLife20K</button>
+                <button class="promo-btn" onclick="setPromoCode('KM_LeafLife10K')">KM_LeafLife10K</button>
+                <button class="promo-btn" onclick="setPromoCode('KM_LeafLife10%')">KM_LeafLife10%</button>
+                <input type="text" id="promo-input" placeholder="Nhập mã giảm giá">
+                <button class="apply-btn" onclick="applyPromoCode()">Áp dụng</button>
+            </div>
+            <div class="totals">
+                <p>Tạm tính: <span id="subtotal">1.461.000 VND</span></p>
+                <p>Khuyến mãi: <span id="discount-code">KM_LeafLife20K</span></p>
+                <p>Vận chuyển: <span id="shipping">Miễn phí vận chuyển</span></p>
+                <p>Tổng cộng: <span id="total">1.461.000 VND</span></p>
+            </div>
+            <!-- <a href="Thanhtoan.html" class="order-btn">Đặt hàng</a> -->
+            <button id="order-btn" class="order-btn">Đặt hàng</button>
+            <!-- <button class="order-btn">Đặt hàng</button> -->
+        </div>
+    </div>
+    <!-- Khách hàng khác đã mua -->
+    <div class="sanpham">
+        <h2 class = "center-heading">KHÁCH HÀNG KHÁC ĐÃ MUA</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="D:\Anh\Blooming Skort.webp" alt="Blooming Skort">
+                <p>Blooming Skort</p>
+                <div class="price">423.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Buttercup Top.webp" alt="Buttercup Top">
+                <p>Buttercup Top</p>
+                <div class="price">423.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Doris Dress.webp" alt="Doris Dress">
+                <p>Doris Dress</p>
+                <div class="price">519.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Eleanor Top.webp" alt="Eleanor Top">
+                <p>Eleanor Top</p>
+                <div class="price">423.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản phẩm bán chạy -->
+    <div class="sanpham">
+        <h2 class = "center-heading">SẢN PHẨM BÁN CHẠY</h2>
+        <div class="product-list">
+            <!-- Thêm các sản phẩm vào đây -->
+            <div class="product-item">
+                <img src="D:\Anh\Evelyn Dress.webp" alt="Evelyn Dress">
+                <p>Evelyn Dress</p>
+                <div class="price">618.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Gina Top.webp" alt="Gina Top">
+                <p>Gina Top</p>
+                <div class="price">558.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Hotaru Dress.webp" alt="Hotaru Dress">
+                <p>Hotaru Dress</p>
+                <div class="price">423.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Lilou Mini Dress.png" alt="Lilou Mini Dress">
+                <p>Lilou Mini Dress</p>
+                <div class="price">635.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Sản phẩm đã xem -->
+    <div class="sanpham">
+        <h2 class="center-heading">SẢN PHẨM ĐÃ XEM</h2>
+        <div class="product-list">
+            <!-- Thêm các sản phẩm vào đây -->
+            <div class="product-item">
+                <img src="D:\Anh\Maru Dress.webp" alt="Maru Dress">
+                <p>Maru Dress</p>
+                <div class="price">635.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Miley Dress.webp" alt="Miley Dress">
+                <p>Miley Dress</p>
+                <div class="price">519.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Penelope Top.png" alt="Penelope Top">
+                <p>Penelope Top</p>
+                <div class="price">519.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product-item">
+                <img src="D:\Anh\Valeria Dress.webp" alt="Valeria Dress">
+                <p>Valeria Dress</p>
+                <div class="price">519.000 VND</div>
+                <button>Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    <script src="scriptgiohang1.js"></script>
+</body>
+</html>

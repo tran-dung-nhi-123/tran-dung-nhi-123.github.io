@@ -1,0 +1,379 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.trangchu {
+    margin: 20px 20px 20px 150px;
+    font-size: 15px;
+}
+
+.trangchu a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.trangchu:hover {
+    color: #000000;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.product-table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-right: 20px;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.product-table th {
+    background-color: #f2f2f2;
+}
+
+.product-table img {
+    width: 80px;
+    height: 80px;
+}
+
+.quantity-btn, .remove-btn, .promo-btn, .apply-btn, .order-btn {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    color: #ff4d4d;
+}
+
+.promo-btn {
+    color: #ff6666;
+    border-color: #ff6666;
+    margin-bottom: 5px;
+}
+
+.apply-btn {
+    color: #5cb85c;
+    border-color: #5cb85c;
+}
+.apply-btn:hover {
+    background-color: #badeba;
+}
+
+.order-btn {
+    width: 100%;
+    color: #4CAF50;
+    border-color: #4CAF50;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+.order-btn:hover {
+    background-color: #c9ecca;
+}
+
+.promo-code input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.summary {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.totals p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.center-heading {
+    text-align: center;
+}
+.giohang {
+    width: 80%;
+    margin: 20px auto 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gio-hang-trong {
+    text-align: left;
+    padding: 20px;
+}
+
+.gio-hang-trong p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.gio-hang-trong button {
+    background-color: #aad6f3;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.sanpham {
+    margin-top: 40px;
+}
+
+.sanpham h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3f96de;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    flex: 1;
+    border-radius: 5px;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    background-color: #e0f7ff;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item p {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+.product-item button {
+    background-color: #aad6f3;
+    color: rgb(248, 243, 243);
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.product-item button:hover {
+    background-color: #7fbfea;
+}
+
+.giohangcohang {
+    width: 80%;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sp-da-mua {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.product:last-child {
+    border-bottom: none;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-price {
+    color: #007bff;
+    margin-right: 80px;
+    text-align: right;
+    flex: 1;
+}
+
+.product-size {
+    align-items: center;
+    margin-right: 20px;
+    flex: 0 0 50px;
+}
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 2cm;
+    flex: 0 0 auto;
+}
+
+.product-quantity input {
+    width: 40px;
+    padding: 5px;
+    margin-left: 2cm;
+}
+
+.total {
+    font-size: 20px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.thanhtoan-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #b3d5f2;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.thanhtoan-button:hover {
+    background-color: #7fbfea;
+}
+
+.buy-button {
+    display: block;
+    width: 15%;
+    padding: 10px;
+    background-color: #b3d5f2;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.buy-button:hover {
+    background-color: #7fbfea;
+}
+
+.product-item img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.price {
+    font-size: 16px;
+    text-align: center;
+    color: rgb(203, 61, 61);
+}
+
+/* Responsive styles for tablets and smaller devices */
+@media (max-width: 1024px) {
+    .trangchu {
+        margin: 20px 10px;
+    }
+
+    .product-list {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .product-item {
+        flex: 1 1 calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .giohang {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .giohangcohang {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .product-table {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .summary {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .trangchu {
+        margin: 10px;
+    }
+
+    .product-item {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .giohang {
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .giohangcohang {
+        width: 95%;
+    }
+
+    .thanhtoan-button, .buy-button {
+        width: 100%;
+    }
+
+    .product-quantity input {
+        width: 50px;
+    }
+
+    .total {
+        font-size: 18px;
+    }
+
+    .cart-header {
+        font-size: 20px;
+    }
+}
