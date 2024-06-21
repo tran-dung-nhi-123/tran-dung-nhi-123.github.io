@@ -44,15 +44,27 @@
         }
 
         header {
+            position: fixed;
             color: white;
-            background: url(anh2.png);
+            background: url(anh2.png) no-repeat center center;
             background-size: cover;
             text-align: center;
             height: 13em;
             display: flex;
             flex-direction: column;
+            z-index: 1000;
+            width: 100%;
             justify-content: center;
+            z-index: 1000; /* Đảm bảo header luôn nằm trên cùng */
         }
+        nav{
+            position: fixed;
+            top: 13em; 
+            width: 100%;
+            justify-content: center;
+            z-index: 999; /* Đảm bảo header luôn nằm trên cùng */
+        }
+
 
         header h1 {
             margin: 0;
