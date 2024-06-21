@@ -1250,37 +1250,8 @@
 			}
 		  </script>
 		</main>
-		<!--cuon trang-->
-    <script>
-        // Đợi cho tài liệu HTML và CSS được tải xong
-    document.addEventListener('DOMContentLoaded', function() {
-        // Bắt sự kiện khi người dùng cuộn trang
-        window.addEventListener('scroll', function() {
-            // Lấy vị trí hiện tại của cuộn trang
-            var scrollPos = window.scrollY || window.pageYOffset;
-
-            // Lấy nút "Back to Top"
-            var backToTopBtn = document.querySelector('.back-to-top');
-
-            // Nếu vị trí cuộn lớn hơn 500px, hiển thị nút "Back to Top", ngược lại ẩn đi
-            if (scrollPos > 500) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        // Bắt sự kiện khi click vào nút "Back to Top"
-        document.querySelector('.back-to-top').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Cuộn lên đầu trang với độ mượt mà
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    });
-    </script>
+		<!-- Back to Top -->
+		<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
 			<div class="container relative">
