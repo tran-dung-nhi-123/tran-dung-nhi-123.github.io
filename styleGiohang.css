@@ -30,15 +30,15 @@ body {
     margin-right: 20px;
 }
 
-/* .product-table th, .product-table td {
+.product-table th, .product-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-} */
+}
 
-/* .product-table th {
+.product-table th {
     background-color: #f2f2f2;
-} */
+}
 
 .product-table img {
     width: 80px;
@@ -166,18 +166,20 @@ body {
 }
 
 .product-item button {
-    background-color: #aad6f3;
+    background-color: transparent;
     color: rgb(248, 243, 243);
     padding: 5px 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #7fbfea;
     cursor: pointer;
     text-align: center;
     border-radius: 5px;
     margin-top: 5px;
+    color: #7fbfea;
 }
 
 .product-item button:hover {
     background-color: #7fbfea;
+    color: white;
 }
 
 .cart-header {
@@ -338,9 +340,9 @@ body {
         margin: 10px auto;
     }
 
-    .giohangcohang {
+    /* .giohangcohang {
         width: 95%;
-    }
+    } */
 
     .thanhtoan-button, .buy-button {
         width: 100%;

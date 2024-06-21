@@ -15,115 +15,232 @@
         @import url(dautrang.css);
         /* GIAO DIỆN GIỚI THIỆU */
         body {
-            font-family: SVN Zara Elyse Font;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: SVN Zara Elyse Font;
+    margin: 0;
+    padding: 0;
+}
 
-        .container1 {
-            margin: 0 4cm;
-        }
+.container1 {
+    margin: 0 4cm;
+}
 
-        .header {
-            position: relative;
-            margin-bottom: 20px;
-        }
+/* Adjust container margin for smaller screens */
+@media (max-width: 940px) {
+    .container1 {
+        margin: 0 3cm;
+    }
+}
 
-        .header h1 {
-            font-size: 25px;
-            margin: 0;
-            padding: 10px 0;
-            display: inline-block;
-            vertical-align: middle;
-        }
+@media (max-width: 768px) {
+    .container1 {
+        margin: 0 2cm;
+    }
+}
 
-        .header hr {
-            border: none;
-            border-top: 1px solid #000;
-            margin: 0;
-            height: 1px;
-            position: relative;
-            top: -10px;
-            width: 100%;
-            display: block;
-            vertical-align: middle;
-        }
+@media (max-width: 600px) {
+    .container1 {
+        margin: 0 1cm;
+    }
+}
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+@media (max-width: 480px) {
+    .container1 {
+        margin: 0 0.5cm;
+    }
+}
 
-        .text-box {
-            flex: 1;
-            margin-bottom: 20px;
-            background-color: #c9e5f7;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: SVN Zara Elyse Font;
-            font-size: 16px;
-            line-height: 1.6;
-            position: relative;
-        }
+.header {
+    position: relative;
+    margin-bottom: 20px;
+}
 
-        .signature {
-            text-align: right;
-            margin-top: 16px;
-        }
+.header h1 {
+    font-size: 25px;
+    margin: 0;
+    padding: 10px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
 
-        .signature p {
-            margin: 0;
-            font-size: 16px;
-        }
+.header hr {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 0;
+    height: 1px;
+    position: relative;
+    top: -10px;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+}
 
-        .image-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: space-between;
-            margin: 0 0 1cm 0;
-        }
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-        .image-frame {
-            flex: 1 1 calc(25% - 10px);
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
+.text-box {
+    flex: 1;
+    margin-bottom: 20px;
+    background-color: #c9e5f7;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: SVN Zara Elyse Font;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+}
 
-        .image-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+/* Adjust text-box padding and font-size for smaller screens */
+@media (max-width: 768px) {
+    .text-box {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
 
-        .image-frame button {
-            margin-top: 10px;
-            padding: 10px;
-            border: 2px solid #3f96de;
-            background-color: transparent;
-            color: #3f96de;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+@media (max-width: 600px) {
+    .text-box {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
 
-        .image-frame button:hover {
-            background-color: #3f96de;
+@media (max-width: 480px) {
+    .text-box {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+.signature {
+    text-align: right;
+    margin-top: 16px;
+}
+
+.signature p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Adjust signature font-size for smaller screens */
+@media (max-width: 768px) {
+    .signature p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .signature p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signature p {
+        font-size: 12px;
+    }
+}
+
+.image-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 0 0 1cm 0;
+}
+
+.image-frame {
+    flex: 1 1 calc(25% - 10px);
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-frame button {
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #3f96de;
+    background-color: transparent;
+    color: #3f96de;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.image-frame button:hover {
+    background-color: #3f96de;
+    color: white;
+}
+
+.image-frame:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Adjust image-section and image-frame for smaller screens */
+@media (max-width: 940px) {
+    .image-frame {
+        flex: 1 1 calc(33.33% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .image-frame {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .image-frame {
+        flex: 1 1 100%;
+    }
+}
+/*cuon trang*/
+.back-to-top {
+            display: none; /* Ẩn nút ban đầu */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
             color: white;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000; /* Đảm bảo nút luôn hiển thị trên cùng */
         }
 
-        .image-frame:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transform: scale(1.05);
+        .back-to-top i {
+            line-height: 40px;
+        }
+
+        .back-to-top.show {
+            display: block;
+            opacity: 0.7; /* Điều chỉnh độ mờ của nút khi hiển thị */
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            opacity: 1; /* Hiển thị đầy đủ khi di chuột qua */
         }
     </style>
 </head>
@@ -228,6 +345,37 @@
             </div>
         </div>
     </div>
+    <!--cuon trang-->
+    <script>
+        // Đợi cho tài liệu HTML và CSS được tải xong
+    document.addEventListener('DOMContentLoaded', function() {
+        // Bắt sự kiện khi người dùng cuộn trang
+        window.addEventListener('scroll', function() {
+            // Lấy vị trí hiện tại của cuộn trang
+            var scrollPos = window.scrollY || window.pageYOffset;
+
+            // Lấy nút "Back to Top"
+            var backToTopBtn = document.querySelector('.back-to-top');
+
+            // Nếu vị trí cuộn lớn hơn 500px, hiển thị nút "Back to Top", ngược lại ẩn đi
+            if (scrollPos > 500) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Bắt sự kiện khi click vào nút "Back to Top"
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Cuộn lên đầu trang với độ mượt mà
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
     <!-- FOOTER -->
         <!-- Start Footer Section -->
         <footer class="footer-section">

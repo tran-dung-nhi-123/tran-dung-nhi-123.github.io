@@ -15,68 +15,135 @@
         @import url(dautrang.css);
         /* GIAO DIỆN GIỚI THIỆU */
         body {
-            font-family: SVN Zara Elyse Font;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: SVN Zara Elyse Font;
+    margin: 0;
+    padding: 0;
+}
 
-        .container1 {
-            margin: 0 4cm;
-        }
+.container1 {
+    margin: 0 4cm;
+}
 
-        .header {
-            position: relative;
-            margin-bottom: 20px;
-        }
+/* Adjust container margin for smaller screens */
+@media (max-width: 940px) {
+    .container1 {
+        margin: 0 3cm;
+    }
+}
 
-        .header h1 {
-            font-size: 25px;
-            margin: 0;
-            padding: 10px 0;
-            display: inline-block;
-            vertical-align: middle;
-        }
+@media (max-width: 768px) {
+    .container1 {
+        margin: 0 2cm;
+    }
+}
 
-        .header hr {
-            border: none;
-            border-top: 1px solid #000;
-            margin: 0;
-            height: 1px;
-            position: relative;
-            top: -10px;
-            width: 100%;
-            display: block;
-            vertical-align: middle;
-        }
+@media (max-width: 600px) {
+    .container1 {
+        margin: 0 1cm;
+    }
+}
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+@media (max-width: 480px) {
+    .container1 {
+        margin: 0 0.5cm;
+    }
+}
 
-        .text-box {
-            flex: 1;
-            margin-bottom: 20px;
-            background-color: #c9e5f7;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: SVN Zara Elyse Font;
-            font-size: 16px;
-            line-height: 1.6;
-            position: relative;
-        }
+.header {
+    position: relative;
+    margin-bottom: 20px;
+}
 
-        .signature {
-            text-align: right;
-            margin-top: 16px;
-        }
+.header h1 {
+    font-size: 25px;
+    margin: 0;
+    padding: 10px 0;
+    display: inline-block;
+    vertical-align: middle;
+}
 
-        .signature p {
-            margin: 0;
-            font-size: 16px;
-        }
+.header hr {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 0;
+    height: 1px;
+    position: relative;
+    top: -10px;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text-box {
+    flex: 1;
+    margin-bottom: 20px;
+    background-color: #c9e5f7;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: SVN Zara Elyse Font;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Adjust text-box padding and font-size for smaller screens */
+@media (max-width: 768px) {
+    .text-box {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .text-box {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-box {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+.signature {
+    text-align: right;
+    margin-top: 16px;
+}
+
+.signature p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Adjust signature font-size for smaller screens */
+@media (max-width: 768px) {
+    .signature p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .signature p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signature p {
+        font-size: 12px;
+    }
+}
+
     </style>
 </head>
 <body>

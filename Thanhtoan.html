@@ -168,27 +168,22 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
+
 /* Popup content */
 .popup-content {
     background-color: transparent;
     margin: 5% auto;
-    /* padding: 20px; */
-    border: 1px solid #888;
-    width: 100%;
+    padding: 0;
+    width: 80%;
     max-width: 500px;
     text-align: center;
-    font-size: 18px;
-    border-radius: 10px;
     position: relative;
+    border-radius: 10px;
 }
-.popup h3 {
-    text-align: center;
-    font-size: 23px;
-    color: #1a1c1e;
-}
+
 /* Close button */
 .close {
     color: #aaa;
@@ -212,11 +207,14 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Popup image */
 .popup img {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
+
 
     </style>
 </head>
@@ -407,7 +405,7 @@
 <div id="popup" class="popup">
     <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
-        <img src="D:\Anh\thanhtoan.png" alt="Thông tin tài khoản">
+        <img src="C:\Users\andoa\source\tran-dung-nhi-123.github.io\Anh\tk.png" alt="Thông tin tài khoản">
     </div>
 </div>
 
@@ -415,7 +413,7 @@
 <div id="successPopup" class="popup">
     <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
-        <img src="D:\Anh\Thuctapchuyennganh.png" alt="Thank You">
+        <img src="C:\Users\andoa\source\tran-dung-nhi-123.github.io\Anh\thankyall.png" alt="Thank You">
     </div>
 </div>
 
@@ -445,6 +443,7 @@
         document.getElementById("successPopup").style.display = "block";
     }
 </script>
+
 
 
 <!-- FOOTER -->
