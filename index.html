@@ -78,9 +78,9 @@
         text-transform: uppercase; /* Chuyển đổi thành chữ in hoa */
         margin-bottom: 20px; /* Để khoảng cách với danh sách sản phẩm */
         }
-        /* Định nghĩa màu xanh nhạt hơn cho h2 */
+        
         h2 {
-            color: #b3d5f2; /* Màu xanh nhạt */
+            color: #81b9eb; 
             text-decoration: none; /* Loại bỏ gạch chân */
             transition: color 0.3s; /* Hiệu ứng chuyển đổi màu khi hover */
         }
@@ -367,7 +367,7 @@
                 <img src="new5.png" alt="New Product 5" class="product-image">
                 <p class="product-name">Valeria Dress</p>
                 <p class="product-price">199,000 VND</p>
-                <button class="add-to-cart1">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
             </div>-->
         </div>
         <!-- Sale items -->
@@ -411,22 +411,22 @@
                 <img src="sale5.png" alt="Sale Product 5" class="product-image">
                 <p class="product-name">Adeline Dress</p>
                 <p class="product-price">904.000 VND</p>
-                <button class="add-to-cart1">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
             </div>-->
         </div>
-	<script>
-        // JavaScript code
-        document.getElementById('add-to-cart1').addEventListener('click', function() {
-            // Get the current cart counter value
-            let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-
-            // Increment the counter
-            let newCount = currentCount + 1;
-
-            // Update the counter display
-            document.getElementById('cart-counter').innerText = newCount;
-        });
-    </script>
+        <script>
+            // JavaScript code
+            document.getElementById('add-to-cart').addEventListener('click', function() {
+                // Get the current cart counter value
+                let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+    
+                // Increment the counter
+                let newCount = currentCount + 1;
+    
+                // Update the counter display
+                document.getElementById('cart-counter').innerText = newCount;
+            });
+        </script>    
     </main>
 
     <!-- Popup ảnh -->
@@ -436,7 +436,6 @@
             <img src="anh/popupnew.JPG" alt="Popup Image">
         </div>
     </div>
-
 
 <script>
     window.onload = function() {
