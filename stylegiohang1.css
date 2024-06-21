@@ -1,6 +1,3 @@
-
-/* HEADER */
-/* MAIN */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -64,6 +61,11 @@ body {
     color: #ff6666;
     border-color: #ff6666;
     margin-bottom: 5px;
+    width: 100%;
+}
+.promo-btn:hover {
+    background-color: #ff6666;
+    color: white;
 }
 
 .apply-btn {
@@ -71,21 +73,21 @@ body {
     border-color: #5cb85c;
 }
 .apply-btn:hover {
-    background-color: #badeba;
+    background-color: #5cb85c;
+    color: white;
 }
-
 .order-btn {
     width: 100%;
-    color: #4CAF50;
-    border-color: #4CAF50;
+    color: #5cb85c;
+    border-color: #5cb85c;
     padding: 15px;
     font-size: 16px;
     text-align: center;
 }
 .order-btn:hover {
-    background-color: #c9ecca;
+    background-color: #5cb85c;
+    color: white;
 }
-
 .promo-code input {
     margin: 10px 0;
     padding: 10px;

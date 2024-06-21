@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS chỉnh giao diện trang */
+		  @import url(TKW.css);
+		  @import url(bootstrap.css);
+        /* ĐẦU TRANG */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: white;
+            background: url(anh2.png) no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 13em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            padding-top: 0.2em;
+            font-family: Georgia, serif; /* Phông chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định */
+            font-size: 1.5em;            /* Kích thước chữ mặc định */
+        }
+
+        header p {
+            margin: 0;
+            padding-top: 1.7em;
+            font-family: Georgia, serif; /* Phông chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định */
+            font-size: 1em;              /* Kích thước chữ mặc định */
+        }
+
+        nav, footer {
+            font-family: verdana, sans-serif;
+            background-color: #8ABDE8;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: .8em;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            border: none;
+            padding: .5em 1em;
+            border-radius: .5em;
+            margin: .25em;
+            text-decoration: none;
+            color: #000;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #8ABDE8;
+            border: 1px solid #ccc;
+            padding: 10px;
+            list-style-type: none;
+            z-index: 1;
+            width: 200px; /* Tăng độ rộng của ô thả xuống */
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.7em;
+            font-family: verdana, sans-serif;
+        }
+
+        nav ul li ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: .2em .5em;
+            border: none;
+            border-radius: 0;
+            display: block;
+            font-family: verdana, sans-serif;
+            font-size: 1.5em;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #8ABDE8;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 767px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li:hover ul {
+                display: none;
+            }
+
+            nav ul li ul.show {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-toggler {
+                display: none;
+            }
+
+            nav ul {
+                display: flex;
+            }
+
+            nav ul li ul.show {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            header p {
+                display: block;
+                margin-top: -1.5em;
+                font-size: 1.2em;
+            }
+        }
+
+        @media screen and (min-width: 940px) {
+            header h1 {
+                display: block;
+                margin-top: -0.2em;
+                font-size: 3em;
+            } 
+        }
+
+        /* Existing CSS */
+        /* Additional CSS for search and cart */
+        .search-cart-container {
+            position: fixed;
+            top: 15px;
+            right: 15px; /* Di chuyển một chút sang trái */
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000; /* Đảm bảo nó ở trên các phần tử khác */
+        }
+
+        .search-container, .cart-container {
+            position: relative;
+        }
+
+        .search-container a, .cart-container a {
+            color: #13538A; /* Đặt màu cho biểu tượng */
+        }
+
+        .search-container input {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            z-index: 2;
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn */
+            border-radius: 5px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5em;
+        }
+
+        .cart-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ED6C6C;
+            border-radius: 50%;
+            padding: 0px 5px;
+            font-size: 0.8em;
+        }
+          /* GIAO DIỆN GIỎ HÀNG */
+        body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.trangchu {
+    margin: 20px 20px 20px 150px;
+    font-size: 15px;
+}
+
+.trangchu a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.trangchu:hover {
+    color: #000000;
+}
+
+.center-heading {
+    text-align: center;
+}
+
+.giohang {
+    width: 80%;
+    margin: 20px auto 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gio-hang-trong {
+    text-align: left;
+    padding: 20px;
+}
+
+.gio-hang-trong p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.gio-hang-trong button {
+    background-color: #aad6f3;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.sanpham {
+    margin-top: 40px;
+}
+
+.sanpham h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3f96de;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    flex: 1;
+    border-radius: 5px;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    background-color: #e0f7ff;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item p {
+    font-size: 16px;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+.product-item button {
+    background-color: #aad6f3;
+    color: rgb(248, 243, 243);
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.product-item button:hover {
+    background-color: #7fbfea;
+}
+
+.giohangcohang {
+    width: 80%;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sp-da-mua {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.product:last-child {
+    border-bottom: none;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-price {
+    color: #007bff;
+    margin-right: 80px;
+    text-align: right;
+    flex: 1;
+}
+
+.product-size {
+    align-items: center;
+    margin-right: 20px;
+    flex: 0 0 50px;
+}
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 2cm;
+    flex: 0 0 auto;
+}
+
+.product-quantity input {
+    width: 40px;
+    padding: 5px;
+    margin-left: 2cm;
+}
+
+.total {
+    font-size: 20px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.thanhtoan-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #b3d5f2;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.thanhtoan-button:hover {
+    background-color: #7fbfea;
+}
+
+.buy-button {
+    display: block;
+    width: 15%;
+    padding: 10px;
+    background-color: #b3d5f2;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.buy-button:hover {
+    background-color: #7fbfea;
+}
+
+.product-item img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.price {
+    font-size: 16px;
+    text-align: center;
+    color: rgb(203, 61, 61);
+}
+
+/* Responsive styles for tablets and smaller devices */
+@media (max-width: 1024px) {
+    .trangchu {
+        margin: 20px 10px;
+    }
+
+    .product-list {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .product-item {
+        flex: 1 1 calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .giohang {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .giohangcohang {
+        width: 90%;
+    }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .trangchu {
+        margin: 20px 5%;
+    }
+
+    .product-list {
+        flex-direction: column;
+    }
+
+    .product-item {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-info {
+        flex-direction: column;
+    }
+
+    .product-price, .product-size, .product-quantity {
+        text-align: left;
+        margin-right: 0;
+    }
+
+    .product-quantity input {
+        margin-left: 10px;
+    }
+
+    .total {
+        text-align: left;
+    }
+
+    .buy-button {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- ĐẦU TRANG -->
+    <header>
+        <h1>Blue & Blink</h1>
+        <p>Happy birdday ! Sale up to 50% of selected items</p>
+    </header>
+    
+    <nav>
+        <button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
+        <ul>
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">SẢN PHẨM</a>
+                <ul>
+                    <li><a href="#">MỚI</a></li>
+                    <li><a href="#">KHUYẾN MÃI</a></li>
+                    <li><a href="#">ÁO KHOÁC</a></li>
+                    <li><a href="#">VÁY</a></li>
+                    <li><a href="#">ÁO</a></li>
+                    <li><a href="#">CHÂN VÁY</a></li>
+                    <li><a href="#">QUẦN</a></li>
+                </ul>
+            </li>
+            <li><a href="">LIÊN HỆ</a></li>
+            <li><a href="">VỀ CHÚNG TÔI</a></li>
+            <li><a href="">KHUYẾN MÃI</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">TÀI KHOẢN</a>
+                <ul>
+                    <li><a href="#">ĐĂNG NHẬP</a></li>
+                    <li><a href="#">ĐĂNG KÝ</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="search-cart-container">
+        <div class="search-container">
+            <a href="#" onclick="toggleSearch(event)"><i class="fa fa-search"></i></a>
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="cart-container">
+            <a href="#"><i class="fa fa-shopping-cart cart-icon"></i></a>
+            <span class="cart-counter">0</span>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('show');
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+            const submenu = event.target.nextElementSibling;
+            submenu.classList.toggle('show');
+        }
+
+        function toggleSearch(event) {
+            event.preventDefault();
+            const searchInput = event.target.closest('.search-container').querySelector('input');
+            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    <!-- MAIN -->
+    <div class="trangchu">
+        <a href="trangchu">Trang chủ</a> &gt; <a href="giohang">Giỏ hàng</a>
+    </div>
+    <div class="giohang">
+        <!-- Giỏ hàng có sản phẩm -->
+        <div class="gio-hang-trong">
+            <div class="cart-header">Giỏ hàng của bạn</div>
+            <div class="sp-da-mua">
+    
+                <div class="product-info">
+                    <div class="product-name">Penelope Top</div>
+                    <div class="product-price">520.000 VND</div>
+                    <div class="product-quantity">S</div>
+                </div>
+                <div class="product-quantity">
+                    <span>Số lượng:</span>
+                    <input type="number" value="1" min="1">
+                </div>
+            </div>
+            <div class="sp-da-mua">
+                <div class="product-info">
+                    <div class="product-name">Gina Top</div>
+                    <div class="product-price">558.000 VND</div>
+                    <div class="product-quantity">S</div>
+                </div>
+                <div class="product-quantity">
+                    <span>Số lượng:</span>
+                    <input type="number" value="1" min="1">
+                </div>
+            </div>
+            <div class="total">Tổng tiền: 1.187.000 VND</div>
+            <a href="Thanhtoan.html" class="thanhtoan-button">Thanh toán</a>
+        </div>
+        <!-- Giỏ hàng trống -->
+        <div class="gio-hang-trong">
+            <p>Chưa có sản phẩm nào trong giỏ hàng của bạn</p>
+            <a href="DanhmucSp.html" class="buy-button">Tiếp tục mua sắm</a>
+        </div>
+        
+        <!-- Khách hàng khác đã mua -->
+        <div class="sanpham">
+            <h2 class = "center-heading">KHÁCH HÀNG KHÁC ĐÃ MUA</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="D:\Anh\Blooming Skort.webp" alt="Blooming Skort">
+                    <p>Blooming Skort</p>
+                    <div class="price">423.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Buttercup Top.webp" alt="Buttercup Top">
+                    <p>Buttercup Top</p>
+                    <div class="price">423.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Doris Dress.webp" alt="Doris Dress">
+                    <p>Doris Dress</p>
+                    <div class="price">519.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Eleanor Top.webp" alt="Eleanor Top">
+                    <p>Eleanor Top</p>
+                    <div class="price">423.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm bán chạy -->
+        <div class="sanpham">
+            <h2 class = "center-heading">SẢN PHẨM BÁN CHẠY</h2>
+            <div class="product-list">
+                <!-- Thêm các sản phẩm vào đây -->
+                <div class="product-item">
+                    <img src="D:\Anh\Evelyn Dress.webp" alt="Evelyn Dress">
+                    <p>Evelyn Dress</p>
+                    <div class="price">618.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Gina Top.webp" alt="Gina Top">
+                    <p>Gina Top</p>
+                    <div class="price">558.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Hotaru Dress.webp" alt="Hotaru Dress">
+                    <p>Hotaru Dress</p>
+                    <div class="price">423.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Lilou Mini Dress.png" alt="Lilou Mini Dress">
+                    <p>Lilou Mini Dress</p>
+                    <div class="price">635.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm đã xem -->
+        <div class="sanpham">
+            <h2 class="center-heading">SẢN PHẨM ĐÃ XEM</h2>
+            <div class="product-list">
+                <!-- Thêm các sản phẩm vào đây -->
+                <div class="product-item">
+                    <img src="D:\Anh\Maru Dress.webp" alt="Maru Dress">
+                    <p>Maru Dress</p>
+                    <div class="price">635.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Miley Dress.webp" alt="Miley Dress">
+                    <p>Miley Dress</p>
+                    <div class="price">519.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Penelope Top.png" alt="Penelope Top">
+                    <p>Penelope Top</p>
+                    <div class="price">519.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="D:\Anh\Valeria Dress.webp" alt="Valeria Dress">
+                    <p>Valeria Dress</p>
+                    <div class="price">519.000 VND</div>
+                    <button>Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+     <!-- Start Footer Section -->
+		<footer class="footer-section">
+            <div class="container relative">
+        
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="subscription-form">
+                    <h3 class="d-flex align-items-center">
+                      <span>Hãy gửi phản hồi cho chúng tôi nếu sản phẩm của bạn có vấn đề</span></h3>
+                    <form action="#" class="row g-3">
+                      <div class="col-auto">
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                      </div>
+                      <div class="col-auto">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                      </div>
+                      <div class="col-auto">
+                        <button class="btn btn-primary">
+                          <span class="fa fa-paper-plane"></span>
+                        </button>
+                      </div>
+                    </form>
+        
+                  </div>
+                </div>
+              </div>
+        
+              <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                  <div class="mb-4 footer-logo-wrap"><a href="index.html" class="footer-logo">BLUE&BLINK</a></div>
+                  <p class="mb-4">Chúng tôi mong rằng trải nghiệm ở Blue&Blink sẽ khiến bạn hài lòng.
+                    Sự đảm bảo chất lượng sản phẩm và chính sách bảo hành tốt là những yếu tố quan trọng
+                    mà chúng tôi hướng đến. Đồng thời, chúng tôi cũng tự hào là cửa hàng cung cấp sản phẩm thời trang nữ
+                    hợp xu hướng với giá tốt trên thị trường.
+                  </p>
+        
+                  <ul class="list-unstyled custom-social">
+                    <li><a href="https://www.facebook.com/blueblink062024" target="_blank">
+                      <span class="fa fa-brands fa-facebook-f"></span></a></li>
+                    <li><a href="https://www.tiktok.com" target="_blank">
+                      <span class="fa fa-brands fa-tiktok"></span></a></li>
+                    <li><a href="https://www.instagram.com/blueblink062024?igsh=NHI3OHRicG42dWx5&utm_source=qr" target="_blank">
+                      <span class="fa fa-brands fa-instagram"></span></a></li>
+                  </ul>
+                </div>
+        
+                <div class="col-lg-8">
+                  <div class="row links-wrap">
+                    <div class="col-6 col-sm-6 col-md-3">
+                      <ul class="list-unstyled">
+                        <li>
+                          <p style="color: black;"><b>Tất cả sản phẩm</b></p>
+                        </li>
+                        <li><a href="#">Áo khoác</a></li>
+                        <li><a href="#">Váy</a></li>
+                        <li><a href="#">Áo</a></li>
+                        <li><a href="#">Quần & Chân váy</a></li>
+                        <li><a href="#">Áo liền quần</a></li>
+                        <li><a href="#">Phụ kiện</a></li>
+                      </ul>
+                    </div>
+        
+                    <div class="col-6 col-sm-6 col-md-3">
+                      <ul class="list-unstyled">
+                        <li>
+                          <p style="color: black;"><b>Chính sách mua hàng</b></p>
+                        </li>
+                        <li><a href="#">Hình thức thanh toán</a></li>
+                        <li><a href="#">Chính sách giao hàng</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                      </ul>
+                    </div>
+        
+                    <div class="col-6 col-sm-6 col-md-3">
+                      <ul class="list-unstyled">
+                        <li>
+                          <p style="color: black;"><b>Thông tin liên hệ</b></p>
+                        </li>
+                        <li><a href="#">Hotline: 0344165567</a></li>
+                        <li><a href="#">Email: blueblink062024@gmail.com</a></li>
+                        <li><a href="#">Địa chỉ: số 12 Chùa Bộc, Quang Trung, Đống Đa, Hà Nội </a></li>
+        
+                      </ul>
+                    </div>
+        
+                    <div class="col-6 col-sm-6 col-md-3">
+                      <ul class="list-unstyled">
+                        <li>
+                          <p style="color: black;"><b>Về chúng tôi</b></p>
+                        </li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+            </div>
+          </footer>
+</body>
+</html>
