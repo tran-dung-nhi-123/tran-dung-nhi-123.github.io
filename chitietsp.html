@@ -481,7 +481,7 @@
         </div>
         <div class="cart-container">
             <a href="Giohang.html"><i class="fa fa-shopping-cart cart-icon"></i></a>
-            <span class="cart-counter">0</span>
+            <span class="cart-counter" id="cart-counter">0</span>
         </div>
     </div>
     <script>
@@ -583,10 +583,25 @@
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                         <!-- Add more stars based on the rating -->
                     </div>
-                    <button class="btn btn-blue">Thêm Vào Giỏ Hàng</button>
+                    <button class="btn btn-blue" id="add-to-cart">Thêm Vào Giỏ Hàng</button>
                 </div>
             </div>
         </div></div>
+    <!-- thêm vao gio hang-->
+    <script>
+            // JavaScript code
+            document.getElementById('add-to-cart').addEventListener('click', function() {
+                // Get the current cart counter value
+                let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+
+                // Increment the counter
+                let newCount = currentCount + 1;
+
+                // Update the counter display
+                document.getElementById('cart-counter').innerText = newCount;
+            });
+        </script>
+    
         <!-- Section 2: Product Details -->
         <section class="container my-5 product-detail-container">
             <div class="row">
