@@ -5,8 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="stylegiohang1.css">
+    <style>
+        @import url(dautrang.css)
+    </style>
 </head>
 <body>
+    
+    <!-- HEADER -->
+    <header>
+        <h1>Blue & Blink</h1>
+        <p>Happy birdday ! Sale up to 50% of selected items</p>
+    </header>
+    
+    <nav>
+        <button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
+        <ul>
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">SẢN PHẨM</a>
+                <ul>
+                    <li><a href="#">MỚI</a></li>
+                    <li><a href="#">KHUYẾN MÃI</a></li>
+                    <li><a href="#">ÁO KHOÁC</a></li>
+                    <li><a href="#">VÁY</a></li>
+                    <li><a href="#">ÁO</a></li>
+                    <li><a href="#">CHÂN VÁY</a></li>
+                    <li><a href="#">QUẦN</a></li>
+                </ul>
+            </li>
+            <li><a href="">LIÊN HỆ</a></li>
+            <li><a href="">VỀ CHÚNG TÔI</a></li>
+            <li><a href="">KHUYẾN MÃI</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">TÀI KHOẢN</a>
+                <ul>
+                    <li><a href="#">ĐĂNG NHẬP</a></li>
+                    <li><a href="#">ĐĂNG KÝ</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="search-cart-container">
+        <div class="search-container">
+            <a href="#" onclick="toggleSearch(event)"><i class="fa fa-search"></i></a>
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="cart-container">
+            <a href="#"><i class="fa fa-shopping-cart cart-icon"></i></a>
+            <span class="cart-counter">0</span>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('show');
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+            const submenu = event.target.nextElementSibling;
+            submenu.classList.toggle('show');
+        }
+
+        function toggleSearch(event) {
+            event.preventDefault();
+            const searchInput = event.target.closest('.search-container').querySelector('input');
+            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    <!-- MAIN -->
     <div class="trangchu">
         <a href="trangchu">Trang chủ</a> &gt; <a href="giohang">Giỏ hàng</a>
     </div>
