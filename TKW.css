@@ -508,7 +508,6 @@ header {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-  background-image: url('../images/anhmo3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -553,7 +552,6 @@ header {
   content: "";
   width: 255px;
   height: 217px;
-  background-image: url("../images/dots-yellow.svg");
   background-repeat: no-repeat;
   background-size: contain;
   -webkit-transform: translate(-40%, -40%);
