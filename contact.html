@@ -294,38 +294,7 @@
             z-index: 999;
         }
 
-        /*cuon trang*/
-        .back-to-top {
-            display: none; /* Ẩn nút ban đầu */
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 1000; /* Đảm bảo nút luôn hiển thị trên cùng */
-        }
-
-        .back-to-top i {
-            line-height: 40px;
-        }
-
-        .back-to-top.show {
-            display: block;
-            opacity: 0.7; /* Điều chỉnh độ mờ của nút khi hiển thị */
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            opacity: 1; /* Hiển thị đầy đủ khi di chuột qua */
-        }
+        
     </style>
 </head>
 
@@ -477,39 +446,7 @@
       })
     </script>  
 
-    <!--cuon trang-->
-    <script>
-        // Đợi cho tài liệu HTML và CSS được tải xong
-    document.addEventListener('DOMContentLoaded', function() {
-        // Bắt sự kiện khi người dùng cuộn trang
-        window.addEventListener('scroll', function() {
-            // Lấy vị trí hiện tại của cuộn trang
-            var scrollPos = window.scrollY || window.pageYOffset;
-
-            // Lấy nút "Back to Top"
-            var backToTopBtn = document.querySelector('.back-to-top');
-
-            // Nếu vị trí cuộn lớn hơn 500px, hiển thị nút "Back to Top", ngược lại ẩn đi
-            if (scrollPos > 500) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        // Bắt sự kiện khi click vào nút "Back to Top"
-        document.querySelector('.back-to-top').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Cuộn lên đầu trang với độ mượt mà
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    });
-    </script>
-
-
+    
     <!--footer-->
         <footer class="footer-section">
             <div class="container relative">
