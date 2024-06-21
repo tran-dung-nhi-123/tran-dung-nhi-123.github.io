@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="Trangchinh/logo.png">
+    <link href="Trangchinh/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3&display=swap">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+    <link href="Trangchinh/css/style.css" rel="stylesheet">
+
+    <title>Trang chủ</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: #4E9ADB;
+            background-size: cover;
+            text-align: center;
+            height: 10em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            padding-top: 0.2em;
+            font-family: Georgia, serif; /* Phông chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định */
+            font-size: 1.5em;            /* Kích thước chữ mặc định */
+        }
+
+        header p {
+            margin: 0;
+            padding-top: 1.7em;
+            font-family: Georgia, serif; /* Phông chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định */
+            font-size: 1em;              /* Kích thước chữ mặc định */
+        }
+
+        nav, footer {
+            font-family: verdana, sans-serif;
+            background-color: #8ABDE8;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: .8em;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            border: none;
+            padding: .5em 1em;
+            border-radius: .5em;
+            margin: .25em;
+            text-decoration: none;
+            color: #000;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #8ABDE8;
+            border: 1px solid #ccc;
+            padding: 10px;
+            list-style-type: none;
+            z-index: 1;
+            width: 200px; /* Tăng độ rộng của ô thả xuống */
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.7em;
+            font-family: verdana, sans-serif;
+        }
+
+        nav ul li ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: .2em .5em;
+            border: none;
+            border-radius: 0;
+            display: block;
+            font-family: verdana, sans-serif;
+            font-size: 1.5em;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #8ABDE8;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 767px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li:hover ul {
+                display: none;
+            }
+
+            nav ul li ul.show {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar-toggler {
+                display: none;
+            }
+
+            nav ul {
+                display: flex;
+            }
+
+            nav ul li ul.show {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            header p {
+                display: block;
+                margin-top: -1.5em;
+                font-size: 1.2em;
+            }
+        }
+
+        @media screen and (min-width: 940px) {
+            header h1 {
+                display: block;
+                margin-top: -0.2em;
+                font-size: 3em;
+            } 
+        }
+
+        /* Existing CSS */
+        /* Additional CSS for search and cart */
+        .search-cart-container {
+            position: fixed;
+            top: 15px;
+            right: 15px; /* Di chuyển một chút sang trái */
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000; /* Đảm bảo nó ở trên các phần tử khác */
+        }
+
+        .search-container, .cart-container {
+            position: relative;
+        }
+
+        .search-container a, .cart-container a {
+            color: #13538A; /* Đặt màu cho biểu tượng */
+        }
+
+        .search-container input {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            z-index: 2;
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn */
+            border-radius: 5px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5em;
+        }
+
+        .cart-counter {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ED6C6C;
+            border-radius: 50%;
+            padding: 0px 5px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Blue & Blink</h1>
+        <p>Happy birdday ! Sale up to 50% of selected items</p>
+    </header>
+    
+    <nav>
+        <button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
+        <ul>
+            <li><a href="">TRANG CHỦ</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">SẢN PHẨM</a>
+                <ul>
+                    <li><a href="#">MỚI</a></li>
+                    <li><a href="#">KHUYẾN MÃI</a></li>
+                    <li><a href="#">ÁO KHOÁC</a></li>
+                    <li><a href="#">VÁY</a></li>
+                    <li><a href="#">ÁO</a></li>
+                    <li><a href="#">CHÂN VÁY</a></li>
+                    <li><a href="#">QUẦN</a></li>
+                </ul>
+            </li>
+            <li><a href="">LIÊN HỆ</a></li>
+            <li><a href="">VỀ CHÚNG TÔI</a></li>
+            <li><a href="">KHUYẾN MÃI</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">TÀI KHOẢN</a>
+                <ul>
+                    <li><a href="#">ĐĂNG NHẬP</a></li>
+                    <li><a href="#">ĐĂNG KÝ</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="search-cart-container">
+        <div class="search-container">
+            <a href="#" onclick="toggleSearch(event)"><i class="fa fa-search"></i></a>
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="cart-container">
+            <a href="#"><i class="fa fa-shopping-cart cart-icon"></i></a>
+            <span class="cart-counter">0</span>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('show');
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+            const submenu = event.target.nextElementSibling;
+            submenu.classList.toggle('show');
+        }
+
+        function toggleSearch(event) {
+            event.preventDefault();
+            const searchInput = event.target.closest('.search-container').querySelector('input');
+            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
