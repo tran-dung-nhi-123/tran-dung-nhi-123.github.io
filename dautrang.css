@@ -5,8 +5,8 @@ body, html {
 }
 
 header {
-    color: black;
-    background: url("D:\Anh\anh2.png") no-repeat center center;
+    color: white;
+    background: url(anh2.png);
     background-size: cover;
     text-align: center;
     height: 13em;

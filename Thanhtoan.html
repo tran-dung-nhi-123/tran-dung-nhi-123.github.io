@@ -173,11 +173,11 @@
 }
 /* Popup content */
 .popup-content {
-    background-color: #f4adc8;
+    background-color: transparent;
     margin: 5% auto;
-    padding: 20px;
+    /* padding: 20px; */
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
     max-width: 500px;
     text-align: center;
     font-size: 18px;
@@ -198,7 +198,7 @@
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: #f25993;
+    background: #f6fdff;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -213,8 +213,8 @@
     cursor: pointer;
 }
 .popup img {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
@@ -245,7 +245,12 @@
                 </ul>
             </li>
             <li><a href="">LIÊN HỆ</a></li>
-            <li><a href="">VỀ CHÚNG TÔI</a></li>
+            <li><a href="#" onclick="toggleSubmenu(event)">VỀ CHÚNG TÔI</a>
+                <ul>
+                    <li><a href="#">GIỚI THIỆU</a></li>
+                    <li><a href="#">CHÍNH SÁCH</a></li>
+                </ul>
+            </li>
             <li><a href="">KHUYẾN MÃI</a></li>
             <li><a href="">TÀI KHOẢN</a></li>
             
@@ -410,7 +415,7 @@
 <div id="successPopup" class="popup">
     <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
-        <img src="D:\Anh\thankyou.png" alt="Thank You">
+        <img src="D:\Anh\Thuctapchuyennganh.png" alt="Thank You">
     </div>
 </div>
 
