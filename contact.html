@@ -43,7 +43,7 @@
 
         header {
             color: white;
-            background: url(anh2.png) no-repeat center center;
+            background: url(anh2.png);
             background-size: cover;
             text-align: center;
             height: 13em;
@@ -261,6 +261,71 @@
             height: 100%;
             border: 0;
         }
+        
+        /*style popup*/
+    
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 300px; /* Chiều rộng của popup */
+            text-align: center; /* Căn giữa nội dung */
+        }
+        .popup p {
+            margin: 30px 0; /* Khoảng cách trên và dưới chữ "Gửi thành công!" */
+            text-align: center; /* Căn giữa chữ */
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        /*cuon trang*/
+        .back-to-top {
+            display: none; /* Ẩn nút ban đầu */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000; /* Đảm bảo nút luôn hiển thị trên cùng */
+        }
+
+        .back-to-top i {
+            line-height: 40px;
+        }
+
+        .back-to-top.show {
+            display: block;
+            opacity: 0.7; /* Điều chỉnh độ mờ của nút khi hiển thị */
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            opacity: 1; /* Hiển thị đầy đủ khi di chuột qua */
+        }
     </style>
 </head>
 
@@ -351,24 +416,49 @@
                             </p>
                         </div>
                         <br>
-                        <form action="" class="">
+                        <form id="contactForm" action="" class="">
                             <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Tên của bạn" required>
                             <input type="email" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder=" Email của bạn" required>
                             <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Địa chỉ" required>
                             <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Điện thoại" required>
                             <textarea class="w-100 form-control border-secondary border-1 mb-4" rows="5" cols="10" placeholder="Nội dung" required></textarea>
-                            <button class="btn btn-blue">Gửi</button>
+                            <button class="btn btn-blue" type="submit">Gửi</button>
                         </form>
                     </div>
-                    
+
+                    <!-- Popup overlay -->
+                    <div class="popup-overlay" id="popupOverlay"></div>
+
+                    <!-- Popup notification -->
+                    <div class="popup" id="successPopup">
+                        <p>Gửi thành công!</p>
+                        <button class="btn btn-blue" onclick="closePopup()">Đóng</button>
+                    </div>
+     
                 </div>
             </div>
         </div>
     </div>
     <!-- Contact End --> 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+    
 
+    <!--Script cho popup-->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            showPopup();
+        });
+
+        function showPopup() {
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('successPopup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('successPopup').style.display = 'none';
+        }
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -386,6 +476,38 @@
         alert("Cảm ơn bạn đã liên hệ với chúng tôi!"); 
       })
     </script>  
+
+    <!--cuon trang-->
+    <script>
+        // Đợi cho tài liệu HTML và CSS được tải xong
+    document.addEventListener('DOMContentLoaded', function() {
+        // Bắt sự kiện khi người dùng cuộn trang
+        window.addEventListener('scroll', function() {
+            // Lấy vị trí hiện tại của cuộn trang
+            var scrollPos = window.scrollY || window.pageYOffset;
+
+            // Lấy nút "Back to Top"
+            var backToTopBtn = document.querySelector('.back-to-top');
+
+            // Nếu vị trí cuộn lớn hơn 500px, hiển thị nút "Back to Top", ngược lại ẩn đi
+            if (scrollPos > 500) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Bắt sự kiện khi click vào nút "Back to Top"
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Cuộn lên đầu trang với độ mượt mà
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
 
 
     <!--footer-->
