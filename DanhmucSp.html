@@ -4,7 +4,7 @@
 		<title>Danh mục Sản phẩm</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" type="image/x-icon" href="logo.png">
+		<link rel="icon" type="image/x-icon" href="TKW/logo.png">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3&display=swap">
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
@@ -12,6 +12,7 @@
 		  /* CSS chỉnh giao diện trang */
 		  @import url(TKW.css);
 		  @import url(bootstrap.css);
+		  @import url(dautrang.css);
 		  body {
 			font-family: Arial, Helvetica, sans-serif;
 		  }
@@ -127,7 +128,9 @@
 			background-color: #fff;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		  }
-	  
+		  .product:hover {
+            		background-color:#D2E8FA;
+		  }
 		  .product img {
 			max-width: 100%;
 			height: auto;
@@ -246,7 +249,7 @@
 			/* Ẩn thanh cuộn trên Microsoft Edge */
 			padding: 20px;
 			background-color: #f1f1f1;
-		  }
+			}
 	  
 		  .product-item {
 			flex: 0 0 auto;
@@ -359,83 +362,130 @@
 		  button:hover {
 			opacity: 0.8;
 		  }
-		</style>
+		  /* Điều chỉnh cho máy tính bảng */
+		  @media screen and (max-width: 1024px) {
+            .headerbn {
+            height: 200px;
+            }
+
+            .header-title {
+            font-size: 24px;
+            }
+
+            .product-list-container {
+            grid-template-columns: 1fr;
+            }
+
+            #product-list {
+            grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+            padding: 15px 0;
+            font-size: 14px;
+            }
+        }
+
+        /* Điều chỉnh cho điện thoại di động */
+        @media screen and (max-width: 768px) {
+            .headerbn {
+            height: 150px;
+            }
+
+            .header-title {
+            font-size: 18px;
+            }
+
+            .product-list-container {
+            grid-template-columns: 1fr;
+            padding: 10px;
+            }
+
+            #product-list {
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+            }
+
+            .product {
+            padding: 10px;
+            }
+
+            footer {
+            padding: 10px 0;
+            font-size: 12px;
+            }
+        }
+		  	</style>
 	  </head>
 	  
 	  <body>
-		<!--Header 1-->
-		<header>
-		  <div id="logo">
-			<a href="index.html"><img src="logo.png" alt="Your Logo" class="blink"></a>
-		  </div>
-	  
-		  <div class="input-group" id="search-box">
-			<input type="text" class="form-control" id="search-input" placeholder="Tìm kiếm sản phẩm bạn yêu thích">
-			<div class="input-group-append">
-			  <button class="btn btn-outline-light" type="button" onclick="searchProduct()">
-				<i class="fas fa-search"></i>
-			  </button>
-			</div>
-		  </div>
-	  
-		  <div id="login-link">
-			<a class="nav-link" href="#"><img src="../Trangchinh/images/user.svg"></a>
-			<a class="nav-link" href="#"><img src="../Trangchinh/images/cart.svg"></a>
-		  </div>
-		</header>
-		<!--End Header 1-->
-	  
+			  
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md nagvbar-dark b-dark" arial-label="Furni navigation bar">
-		  <div class="container">
-			<div class="collapse navbar-collapse" id="navbarsFurni">
-			  <ul class="custom-navbar-nav navbar-nav me-auto mb-2 mb-md-0">
-				<li >
-				  <a class="nav-link" href="../index.html">Trang chủ</a>
+		<header>
+			<h1>Blue & Blink</h1>
+			<p>Happy birdday ! Sale up to 50% of selected items</p>
+		</header>
+		
+		<nav>
+			<button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
+				<span class="fa fa-bars text-primary"></span>
+			</button>
+			<ul>
+				<li><a href="index.html">TRANG CHỦ</a></li>
+				<li><a href="DanhmucSp.html" onclick="toggleSubmenu(event)">SẢN PHẨM</a>
+					<ul>
+						<li><a href="#">MỚI</a></li>
+						<li><a href="#">KHUYẾN MÃI</a></li>
+						<li><a href="#">ÁO KHOÁC</a></li>
+						<li><a href="#">VÁY</a></li>
+						<li><a href="#">ÁO</a></li>
+						<li><a href="#">CHÂN VÁY</a></li>
+						<li><a href="#">QUẦN</a></li>
+					</ul>
 				</li>
-				<li class="nav-item active">
-				  <div class="dropdown">
-					<a class="nav-link" href="#">Sản phẩm</a>
-					<div class="dropdown-content">
-					  <a href="#">Áo khoác</a>
-					  <a href="#">Váy</a>
-					  <a href="#">Áo</a>
-					  <a href="#">Quần & chân váy</a>
-					  <a href="#">Áo liền quần</a>
-					  <a href="#">Phụ kiện</a>
-					</div>
-				  </div>
+				<li><a href="">LIÊN HỆ</a></li>
+				<li><a href="">VỀ CHÚNG TÔI</a></li>
+				<li><a href="DanhmucSp.html">KHUYẾN MÃI</a></li>
+				<li><a href="#" onclick="toggleSubmenu(event)">TÀI KHOẢN</a>
+					<ul>
+						<li><a href="#">ĐĂNG NHẬP</a></li>
+						<li><a href="#">ĐĂNG KÝ</a></li>
+					</ul>
 				</li>
-				<li><a class="nav-link" href="#">Giới thiệu</a></li>
-				<li><a class="nav-link" href="#">Khuyến mãi</a></li>
-				<li>
-				  <div class="dropdown">
-					<a class="nav-link" href="#">Blog</a>
-					<div class="dropdown-content">
-					  <a href="#">Về chúng tôi</a>
-					</div>
-				  </div>
-				</li>
-				<li><a class="nav-link" href="#">Liên hệ</a></li>
-			  </ul>
-	  
-			  <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-				<li>
-				  <p class="nav-link">|</p>
-				</li>
-				<li>
-				  <p class="nav-link">Hotline: </p>
-				</li>
-				<li><a class="nav-link" href="#">0344165567</a></li>
-	  
-			  </ul>
-			</div>
-		  </div>
+				
+			</ul>
 		</nav>
-	  
+		<div class="search-cart-container">
+			<div class="search-container">
+				<a href="#" onclick="toggleSearch(event)"><i class="fa fa-search"></i></a>
+				<input type="text" placeholder="Search...">
+			</div>
+			<div class="cart-container">
+				<a href="#"><i class="fa fa-shopping-cart cart-icon"></i></a>
+				<span class="cart-counter">0</span>
+			</div>
+		</div>
+		<script>
+			function toggleMenu() {
+				const navUl = document.querySelector('nav ul');
+				navUl.classList.toggle('show');
+			}
+	
+			function toggleSubmenu(event) {
+				event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+				const submenu = event.target.nextElementSibling;
+				submenu.classList.toggle('show');
+			}
+	
+			function toggleSearch(event) {
+				event.preventDefault();
+				const searchInput = event.target.closest('.search-container').querySelector('input');
+				searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+			}
+		</script>
 		<div>
 		  <div class="headerbn">
-			<img src="banner2.png" alt="Banner" class="header-image">
+			<img src="TKW/banner2.png" alt="Banner" class="header-image">
 			<h1 class="header-title" style="font-size: 50px;">Thời trang nữ</h1>
 		  </div>
 		</div>
@@ -486,8 +536,8 @@
 			  <div id="product-list">
 				<div class="product" data-price="1100" data-material="tweed" data-date="2024-01-01" data-views="10">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="aokhoac1.png" alt="Sản phẩm 1">
-				  <div style="text-align: center;">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/aokhoac1.png" alt="Sản phẩm 1">
+					<div style="text-align: center;">
 					<a href="#">
 					  <h3>Chelsea Coat</h3>
 					</a>
@@ -500,7 +550,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('01')">&times;</span>
 					  <div id="product">
-						<img src="aokhoac1.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/aokhoac1.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Chelsea Coat</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND </h4>
@@ -514,7 +564,7 @@
 
 				<div class="product" data-price="1100" data-material="tweed" data-date="2024-01-01" data-views="10">
 					<img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					  onmouseout="this.style.filter='brightness(100%)';" src="aokhoac2.png" alt="Sản phẩm 2">
+					  onmouseout="this.style.filter='brightness(100%)';" src="TKW/aokhoac2.png" alt="Sản phẩm 2">
 					<div style="text-align: center;">
 						<a href="#">
 						<h3>Luna Jacket</h3>
@@ -528,7 +578,7 @@
 					  <form class="modal-content" method="post">
 						<span class="close" onclick="toggleModal('02')">&times;</span>
 						<div id="product">
-						  <img src="aokhoac2.png" alt="Product Image" style="width: 200px; height: 200px;">
+						  <img src="TKW/aokhoac2.png" alt="Product Image" style="width: 200px; height: 200px;">
 						  <div style="margin-left: 10px;">
 							<h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Luna Jacket</h4>
 							<h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND </h4>
@@ -543,7 +593,7 @@
 				<div class="product" data-price="1100" data-material="tweed" data-date="2024-02-01"
 				  data-views="50">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="aokhoac3.png" alt="Sản phẩm 3">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/aokhoac3.png" alt="Sản phẩm 3">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Fuzzy Jacket</h3>
@@ -557,7 +607,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('03')">&times;</span>
 					  <div id="product">
-						<img src="aokhoac3.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/aokhoac3.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Fuzzy Coat</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND</h4>
@@ -571,7 +621,7 @@
 	  
 				<div class="product" data-price="1100" data-material="tweed" data-date="2024-04-01" data-views="30">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="aokhoac4.png" alt="Sản phẩm 4">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/aokhoac4.png" alt="Sản phẩm 4">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Aubrey Trenchcoat</h3>
@@ -585,9 +635,9 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('04')">&times;</span>
 					  <div id="product">
-						<img src="aokhoac4.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/aokhoac4.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
-						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">GK04</h4>
+						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Aubrey Trenchcoat</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,324,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải tweed</p>
 						  <button class="add-to-cart">Thêm vào giỏ hàng</button>
@@ -599,7 +649,7 @@
 	  
 				<div class="product" data-price="500-1000" data-material="voan" data-date="2020-06-10" data-views="2">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="vay1.png" alt="Sản phẩm 5">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/vay1.png" alt="Sản phẩm 5">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Maru Dress</h3>
@@ -613,7 +663,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('05')">&times;</span>
 					  <div id="product">
-						<img src="vay1.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/vay1.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Maru Dress</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 635,000 VND</h4>
@@ -629,7 +679,7 @@
 				<div class="product" data-price="450" data-material="dui" data-date="2022-01-01"
 				  data-views="11">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="vay2.png" alt="Sản phẩm 6">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/vay2.png" alt="Sản phẩm 6">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Doris Dress</h3>
@@ -643,7 +693,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('06')">&times;</span>
 					  <div id="product">
-						<img src="vay2.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/vay2.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Doris Dress</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 489,000 VND</h4>
@@ -658,7 +708,7 @@
 				<div class="product" data-price="1100" data-material="dui" data-date="2023-12-11"
 				  data-views="14">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="vay3.png" alt="Sản phẩm 7">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/vay3.png" alt="Sản phẩm 7">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Lemonade Dress</h3>
@@ -672,7 +722,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('07')">&times;</span>
 					  <div id="product">
-						<img src="vay3.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/vay3.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Lemonade Dress</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,019,000 VND</h4>
@@ -686,7 +736,7 @@
 				<div class="product" data-price="450" data-material="dui" data-date="2020-01-01"
 				  data-views="9">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="vay4.png" alt="Sản phẩm 8">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/vay4.png" alt="Sản phẩm 8">
 				  <div style="text-align: center;">
 					<a href="#">
 					  <h3>Katie Dress</h3>
@@ -700,7 +750,7 @@
 					<form class="modal-content" method="post">
 					  <span class="close" onclick="toggleModal('08')">&times;</span>
 					  <div id="product">
-						<img src="vay4.png" alt="Product Image" style="width: 200px; height: 200px;">
+						<img src="TKW/vay4.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Katie Dress</h4>
 						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 490,000 VND</h4>
@@ -714,7 +764,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="voan" data-date="2023-11-1" data-views="4">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao1.png" alt="Sản phẩm 9">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao1.png" alt="Sản phẩm 9">
 				  <div style="text-align: center;">
 					<h3>Jelly Top</h3>
 					<p class="price"><span class="original-price">962,000 </span> Giá: 423,000 VND</p>
@@ -726,7 +776,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="dui" data-date="2022-11-1" data-views="40">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao2.png" alt="Sản phẩm 10">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao2.png" alt="Sản phẩm 10">
 				  <div style="text-align: center;">
 					<h3>Sweet Shirt</h3>
 					<p class="price"><span class="original-price">808,000 </span> Giá: 423,000 VND</p>
@@ -738,7 +788,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="voan"  data-date="2020-6-1" data-views="32">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao3.png" alt="Sản phẩm 11">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao3.png" alt="Sản phẩm 11">
 				  <div style="text-align: center;">
 					<h3>Buttercup Top</h3>
 					<p class="price"><span class="original-price">760,000 </span> Giá: 423,000 VND</p>
@@ -750,7 +800,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="voan" data-date="2021-3-10" data-views="23">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao4.png" alt="Sản phẩm 12">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao4.png" alt="Sản phẩm 12">
 				  <div style="text-align: center;">
 					<h3>Mã sản phẩm: GK12</h3>
 					<p class="price"><span class="original-price">724,000 </span> Giá: 423,000 VND</p>
@@ -762,7 +812,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="voan" data-date="2022-11-1" data-views="40">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao5.png" alt="Sản phẩm 13">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao5.png" alt="Sản phẩm 13">
 				  <div style="text-align: center;">
 					<h3>Enora Top</h3>
 					<p class="price"><span class="original-price">750,000 </span> Giá: 423,000 VND</p>
@@ -774,7 +824,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="voan" data-date="2023-12-12" data-views="52">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao6.png" alt="Sản phẩm 14">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao6.png" alt="Sản phẩm 14">
 				  <div style="text-align: center;">
 					<h3>Yuri Top</h3>
 					<p class="price"><span class="original-price">760,000 VND</span> Giá: 519,000 VND</p>
@@ -786,7 +836,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed" data-date="2020-11-10" data-views="11">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao7.png" alt="Sản phẩm 15">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao7.png" alt="Sản phẩm 15">
 				  <div style="text-align: center;">
 					<h3>Mirai Cottage Core Shirt</h3>
 					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
@@ -798,7 +848,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed" data-date="2021-6-10" data-views="31">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ao8.png" alt="Sản phẩm 16">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao8.png" alt="Sản phẩm 16">
 				  <div style="text-align: center;">
 					<h3>Cora Tweed Top</h3>
 					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
@@ -810,7 +860,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed"  data-date="2024-1-2" data-views="12">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="cvay1.png" alt="Sản phẩm 17">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay1.png" alt="Sản phẩm 17">
 				  <div style="text-align: center;">
 					<h3>Phoebe Skirt</h3>
 					<p class="price"><span class="original-price">962,000 </span> Giá: 519,000 VND</p>
@@ -822,7 +872,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed"  data-date="2022-2-2" data-views="19">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="cvay2.png" alt="Sản phẩm 18">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay2.png" alt="Sản phẩm 18">
 				  <div style="text-align: center;">
 					<h3>Alicia Tweed Shirt</h3>
 					<p class="price"><span class="original-price">1,135,000 </span> Giá: 616,000 VND</p>
@@ -834,7 +884,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed" data-date="2020-3-6" data-views="8">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="cvay3.png" alt="Sản phẩm 19">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay3.png" alt="Sản phẩm 19">
 				  <div style="text-align: center;">
 					<h3>Corduroy Skirt</h3>
 					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
@@ -846,7 +896,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="dui" data-date="2021-4-11" data-views="21">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="cvay4.png" alt="Sản phẩm 20">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay4.png" alt="Sản phẩm 20">
 				  <div style="text-align: center;">
 					<h3>Raven Skirt</h3>
 					<p class="price"><span class="original-price">731,000 </span> Giá: 423,000 VND</p>
@@ -858,7 +908,7 @@
 	  
 				<div class="product" style="display: none;" data-price="450" data-material="dui" data-date="2023-5-6" data-views="26">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="cvay5.png" alt="Sản phẩm 21">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay5.png" alt="Sản phẩm 21">
 				  <div style="text-align: center;">
 					<h3>Blooming Skirt</h3>
 					<p class="price"><span class="original-price">722,000 </span> Giá: 423,000 VND</p>
@@ -870,7 +920,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="tweed" data-date="2019-5-12" data-views="2">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="22.png" alt="Sản phẩm 22">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/22.png" alt="Sản phẩm 22">
 				  <div style="text-align: center;">
 					<h3>Cheezy Jumpsuit</h3>
 					<p class="price"><span class="original-price">942,000 </span> Giá: 519,000 VND</p>
@@ -882,7 +932,7 @@
 	  
 				<div class="product" style="display: none;" data-price="500-1000" data-material="jeans"  data-date="2020-1-10" data-views="17">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="23.png" alt="Sản phẩm 23">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/23.png" alt="Sản phẩm 23">
 				  <div style="text-align: center;">
 					<h3>Denim Dungarees</h3>
 					<p class="price"><span class="original-price">1,231,000 </span> Giá: 808,000 VND</p>
@@ -895,9 +945,9 @@
 				<div class="product" style="display: none;" data-price="179" data-material="plastic1" data-shape="rectangle"
 				  data-date="2021-6-10" data-views="31">
 				  <img style="filter: brightness(100%);" onmouseover="this.style.filter='brightness(80%)';"
-					onmouseout="this.style.filter='brightness(100%)';" src="ImagesGK/GK24.png" alt="Sản phẩm 24">
+					onmouseout="this.style.filter='brightness(100%)';" src="TKW/pkien.png" alt="Sản phẩm 24">
 				  <div style="text-align: center;">
-					<h3>Mã sản phẩm: GK24</h3>
+					<h3>Summer Bandana</h3>
 					<p class="price"><span class="original-price">250,000 VND</span> Giá: 179,000 VND</p>
 					<button onclick="toggleModal('16')" class="quick-view">Xem nhanh</button>
 					<p class="add-to-cart">Thêm vào giỏ hàng</p>
@@ -920,49 +970,49 @@
 			<h2 style="text-align: center;">Sản phẩm nổi bật</h2>
 			<div class="product-container">
 			  <div class="product-item">
-				<img src="vay1.png" alt="Product 5" class="product-img">
+				<img src="TKW/vay1.png" alt="Product 5" class="product-img">
 				<a href="#">
 				  <h3>Maru Dress</h3>
 				</a>
 				<p style="text-align: center;">Giá: 635,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="aokhoac2.png" alt="Product 2" class="product-img">
+				<img src="TKW/aokhoac2.png" alt="Product 2" class="product-img">
 				<a href="#">
 				  <h3>Luna Jacket</h3>
 				</a>
 				<p style="text-align: center;">Giá: 1,192,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="cvay4.png" alt="Product 20" class="product-img">
+				<img src="TKW/cvay4.png" alt="Product 20" class="product-img">
 				<a href="#">
 				  <h3>Raven Skirt</h3>
 				</a>
 				<p style="text-align: center ;">Giá: 423,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="vay3.png" alt="Product 7" class="product-img">
+				<img src="TKW/vay3.png" alt="Product 7" class="product-img">
 				<a href="#">
 				  <h3>Lemonade Dress</h3>
 				</a>
 				<p style="text-align: center;">Giá: 1,019,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="23.png" alt="Product 23" class="product-img">
+				<img src="TKW/23.png" alt="Product 23" class="product-img">
 				<a href="#">
 				  <h3>Denim Dungarees</h3>
 				</a>
 				<p style="text-align: center;">Giá: 808,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="ao3.png" alt="Product 11" class="product-img">
+				<img src="TKW/ao3.png" alt="Product 11" class="product-img">
 				<a href="#">
 				  <h3>Buttercup Top</h3>
 				</a>
 				<p style="text-align: center;">Giá: 423,000 VND</p>
 			  </div>
 			  <div class="product-item">
-				<img src="cvay5.png" alt="Product 21" class="product-img">
+				<img src="TKW/cvay5.png" alt="Product 21" class="product-img">
 				<a href="#">
 				  <h3>Blooming Skirt</h3>
 				</a>
@@ -1156,104 +1206,103 @@
 		</main>
 		<!-- Start Footer Section -->
 		<footer class="footer-section">
-		  <div class="container relative">
-	  
-			<div class="row">
-			  <div class="col-lg-8">
-				<div class="subscription-form">
-				  <h3 class="d-flex align-items-center">
-					<span>Hãy gửi phản hồi cho chúng tôi nếu sản phẩm của bạn có vấn đề</span></h3>
-				  <form action="#" class="row g-3">
-					<div class="col-auto">
-					  <input type="text" class="form-control" placeholder="Enter your name">
-					</div>
-					<div class="col-auto">
-					  <input type="email" class="form-control" placeholder="Enter your email">
-					</div>
-					<div class="col-auto">
-					  <button class="btn btn-primary">
-						<span class="fa fa-paper-plane"></span>
-					  </button>
-					</div>
-				  </form>
-	  
-				</div>
-			  </div>
-			</div>
-	  
-			<div class="row g-5 mb-5">
-			  <div class="col-lg-4">
-				<div class="mb-4 footer-logo-wrap"><a href="index.html" class="footer-logo">BLUE&BLINK</a></div>
-				<p class="mb-4">Chúng tôi mong rằng trải nghiệm ở Blue&Blink sẽ khiến bạn hài lòng.
-				  Sự đảm bảo chất lượng sản phẩm và chính sách bảo hành tốt là những yếu tố quan trọng
-				  mà chúng tôi hướng đến. Đồng thời, chúng tôi cũng tự hào là cửa hàng cung cấp sản phẩm thời trang nữ
-				  hợp xu hướng với giá tốt trên thị trường.
-				</p>
-	  
-				<ul class="list-unstyled custom-social">
-				  <li><a href="https://www.facebook.com/blueblink062024" target="_blank">
-					<span class="fa fa-brands fa-facebook-f"></span></a></li>
-				  <li><a href="https://www.tiktok.com" target="_blank">
-					<span class="fa fa-brands fa-tiktok"></span></a></li>
-				  <li><a href="https://www.instagram.com/blueblink062024?igsh=NHI3OHRicG42dWx5&utm_source=qr" target="_blank">
-					<span class="fa fa-brands fa-instagram"></span></a></li>
-				</ul>
-			  </div>
-	  
-			  <div class="col-lg-8">
-				<div class="row links-wrap">
-				  <div class="col-6 col-sm-6 col-md-3">
-					<ul class="list-unstyled">
-					  <li>
-						<p style="color: black;"><b>Tất cả sản phẩm</b></p>
-					  </li>
-					  <li><a href="#">Áo khoác</a></li>
-					  <li><a href="#">Váy</a></li>
-					  <li><a href="#">Áo</a></li>
-					  <li><a href="#">Quần & Chân váy</a></li>
-					  <li><a href="#">Áo liền quần</a></li>
-					  <li><a href="#">Phụ kiện</a></li>
-					</ul>
-				  </div>
-	  
-				  <div class="col-6 col-sm-6 col-md-3">
-					<ul class="list-unstyled">
-					  <li>
-						<p style="color: black;"><b>Chính sách mua hàng</b></p>
-					  </li>
-					  <li><a href="#">Hình thức thanh toán</a></li>
-					  <li><a href="#">Chính sách giao hàng</a></li>
-					  <li><a href="#">Chính sách bảo hành</a></li>
-					  <li><a href="#">Chính sách bảo mật</a></li>
-					</ul>
-				  </div>
-	  
-				  <div class="col-6 col-sm-6 col-md-3">
-					<ul class="list-unstyled">
-					  <li>
-						<p style="color: black;"><b>Thông tin liên hệ</b></p>
-					  </li>
-					  <li><a href="#">Hotline: 0344165567</a></li>
-					  <li><a href="#">Email: blueblink062024@gmail.com</a></li>
-					  <li><a href="#">Địa chỉ: số 12 Chùa Bộc, Quang Trung, Đống Đa, Hà Nội </a></li>
-	  
-					</ul>
-				  </div>
-	  
-				  <div class="col-6 col-sm-6 col-md-3">
-					<ul class="list-unstyled">
-					  <li>
-						<p style="color: black;"><b>Về chúng tôi</b></p>
-					  </li>
-					  <li><a href="#">Giới thiệu</a></li>
-					  <li><a href="#">Liên hệ</a></li>
-					</ul>
+			<div class="container relative">
+		
+			  <div class="row">
+				<div class="col-lg-8">
+				  <div class="subscription-form">
+					<h3 class="d-flex align-items-center">
+					  <span>Hãy gửi phản hồi cho chúng tôi nếu sản phẩm của bạn có vấn đề</span></h3>
+					<form action="#" class="row g-3">
+					  <div class="col-auto">
+						<input type="text" class="form-control" placeholder="Enter your name">
+					  </div>
+					  <div class="col-auto">
+						<input type="email" class="form-control" placeholder="Enter your email">
+					  </div>
+					  <div class="col-auto">
+						<button class="btn btn-primary">
+						  <span class="fa fa-paper-plane"></span>
+						</button>
+					  </div>
+					</form>
+		
 				  </div>
 				</div>
 			  </div>
+		
+			  <div class="row g-5 mb-5">
+				<div class="col-lg-4">
+				  <div class="mb-4 footer-logo-wrap"><a href="index.html" class="footer-logo">BLUE&BLINK</a></div>
+				  <p class="mb-4">Chúng tôi mong rằng trải nghiệm ở Blue&Blink sẽ khiến bạn hài lòng.
+					Sự đảm bảo chất lượng sản phẩm và chính sách bảo hành tốt là những yếu tố quan trọng
+					mà chúng tôi hướng đến. Đồng thời, chúng tôi cũng tự hào là cửa hàng cung cấp sản phẩm thời trang nữ
+					hợp xu hướng với giá tốt trên thị trường.
+				  </p>
+		
+				  <ul class="list-unstyled custom-social">
+					<li><a href="https://www.facebook.com/blueblink062024" target="_blank">
+					  <span class="fa fa-brands fa-facebook-f"></span></a></li>
+					<li><a href="https://www.tiktok.com" target="_blank">
+					  <span class="fa fa-brands fa-tiktok"></span></a></li>
+					<li><a href="https://www.instagram.com/blueblink062024?igsh=NHI3OHRicG42dWx5&utm_source=qr" target="_blank">
+					  <span class="fa fa-brands fa-instagram"></span></a></li>
+				  </ul>
+				</div>
+		
+				<div class="col-lg-8">
+				  <div class="row links-wrap">
+					<div class="col-6 col-sm-6 col-md-3">
+					  <ul class="list-unstyled">
+						<li>
+							<p style="color: black;"><b>Sản phẩm</b></p>
+						</li>
+						<li><a href="DanhmucSp.html">Mới</a></li>
+						<li><a href="DanhmucSp.html">Khuyến mãi</a></li>
+						<li><a href="#">Áo khoác</a></li>
+						<li><a href="#">Váy</a></li>
+						<li><a href="#">Áo</a></li>
+						<li><a href="#">Chân váy</a></li>
+						<li><a href="#">Quần</a></li>
+					  </ul>
+					</div>
+		
+					<div class="col-6 col-sm-6 col-md-3">
+					  <ul class="list-unstyled">
+						<li>
+							<p style="color: black;"><b>Chính sách & Quy định</b></p>
+						</li>
+						<li><a href="Thanhtoan.html">Quy định thanh toán</a></li>
+						<li><a href="Chinhsach.html">Chính sách</a></li>
+					  </ul>
+					</div>
+		
+					<div class="col-6 col-sm-6 col-md-3">
+					  <ul class="list-unstyled">
+						<li>
+						  <p style="color: black;"><b>Thông tin liên hệ</b></p>
+						</li>
+						<li><a href="#">Hotline: 0344165567</a></li>
+						<li><a href="#">Email: blueblink@gmail.com</a></li>
+						<li><a href="#">Địa chỉ: số 12 Chùa Bộc, Quang Trung, Đống Đa, Hà Nội </a></li>
+		
+					  </ul>
+					</div>
+  
+					  <div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+						  <li>
+							<p style="color: black;"><b>Về chúng tôi</b></p>
+						  </li>
+						  <li><a href="AboutUs1.html">Giới thiệu</a></li>
+						  <li><a href="#">Liên hệ</a></li>
+						</ul>
+						</div>
+				  </div>
+				  </div>
+				</div>
+			  </div>
 			</div>
-	  
-		  </div>
-		</footer>
+		  </footer>
 	  </body>
 </html>

@@ -1,30 +1,15 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" href="Trangchinh/logo.png">
-    <link href="Trangchinh/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3&display=swap">
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
-    <link href="Trangchinh/css/style.css" rel="stylesheet">
-
-    <title>Trang chủ</title>
-    <style>
+@charset "UTF-8";
+ /*Phần header*/
         body, html {
             margin: 0;
             padding: 0;
         }
 
         header {
-            color: white;
-            background: url(anh2.png) no-repeat center center;
+            color: #4E9ADB;
             background-size: cover;
             text-align: center;
-            height: 13em;
+            height: 10em;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -83,7 +68,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #8ABDE8;
+            background-color: #fff;
             border: 1px solid #ccc;
             padding: 10px;
             list-style-type: none;
@@ -218,65 +203,4 @@
             padding: 0px 5px;
             font-size: 0.8em;
         }
-    </style>
-</head>
-
-<body>
-    <header>
-        <h1>Blue & Blink</h1>
-        <p>Happy birdday ! Sale up to 50% of selected items</p>
-    </header>
-    
-    <nav>
-        <button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
-            <span class="fa fa-bars text-primary"></span>
-        </button>
-        <ul>
-            <li><a href="">TRANG CHỦ</a></li>
-            <li><a href="#" onclick="toggleSubmenu(event)">SẢN PHẨM</a>
-                <ul>
-                    <li><a href="#">MỚI</a></li>
-                    <li><a href="#">KHUYẾN MÃI</a></li>
-                    <li><a href="#">ÁO KHOÁC</a></li>
-                    <li><a href="#">VÁY</a></li>
-                    <li><a href="#">ÁO</a></li>
-                    <li><a href="#">CHÂN VÁY</a></li>
-                    <li><a href="#">QUẦN</a></li>
-                </ul>
-            </li>
-            <li><a href="">LIÊN HỆ</a></li>
-            <li><a href="">VỀ CHÚNG TÔI</a></li>
-            <li><a href="">KHUYẾN MÃI</a></li>
-            <li><a href="">TÀI KHOẢN</a></li>
-        </ul>
-    </nav>
-    <div class="search-cart-container">
-        <div class="search-container">
-            <a href="#" onclick="toggleSearch(event)"><i class="fa fa-search"></i></a>
-            <input type="text" placeholder="Search...">
-        </div>
-        <div class="cart-container">
-            <a href="#"><i class="fa fa-shopping-cart cart-icon"></i></a>
-            <span class="cart-counter">0</span>
-        </div>
-    </div>
-    <script>
-        function toggleMenu() {
-            const navUl = document.querySelector('nav ul');
-            navUl.classList.toggle('show');
-        }
-
-        function toggleSubmenu(event) {
-            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-            const submenu = event.target.nextElementSibling;
-            submenu.classList.toggle('show');
-        }
-
-        function toggleSearch(event) {
-            event.preventDefault();
-            const searchInput = event.target.closest('.search-container').querySelector('input');
-            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-</body>
-</html>
+        /*Phần header*/

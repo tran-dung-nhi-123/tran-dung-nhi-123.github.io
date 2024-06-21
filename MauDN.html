@@ -19,8 +19,8 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            max-width: 100%;
+            width: 90%;
+            max-width: 800px;
             overflow: hidden;
             position: relative;
         }
@@ -68,8 +68,8 @@
         .form input[type="submit"] {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            background-color: #000;
+            margin: 40px 0 10px;
+            background-color: #aad6f3;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -78,7 +78,7 @@
         }
 
         .form input[type="submit"]:hover {
-            background-color: #444;
+            background-color: #4a68f0;
         }
 
         .form .forgot-password {
@@ -136,18 +136,32 @@
         .error-notification {
             display: none;
             position: absolute;
-            top: 0;
+            top: 150px;
             left: 0;
             width: 100%;
-            background-color: #f44336;
+            background-color: #4E9ADB;
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 20px 0;
             font-size: 16px;
         }
 
         .error-notification.active {
             display: block;
+        }
+
+        @media (max-width: 600px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tabs div {
+                padding: 5px 0;
+            }
+
+            .form input[type="submit"] {
+                margin: 20px 0 10px;
+            }
         }
     </style>
 </head>
@@ -167,10 +181,10 @@
             <div class="social-login">
                 <p>Hoặc đăng nhập với</p>
                 <a href="https://www.facebook.com/?locale2=vi_VN&_rdr" class="facebook">
-                    <img src="facebook.jpg" alt="Facebook" width="60" height="60">
+                    <img src="anh/facebook.jpg" alt="Facebook" width="60" height="60">
                 </a>
                 <a href="https://accounts.google.com/signin/v2/identifier?hl=vi" class="google">
-                    <img src="google.png" alt="Google" width="45" height="45">
+                    <img src="anh\google.png" alt="Google" width="45" height="45">
                 </a>
             </div>
         </div>
