@@ -1,13 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="Trangchinh/logo.png">
-
-    <!-- Bootstrap CSS -->
-    <link href="Trangchinh/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add this to your head -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
@@ -19,8 +15,142 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
     <link href="../Trangchinh/css/style.css" rel="stylesheet">
 
+    <title>BLUEBLINK</title>
+    <style>
+        /* Đặt lại margin và padding mặc định */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
 
-    <title>Sản phẩm</title>
+        /* header styles */
+        header {
+            color: white;
+            background: url(anh2.png) no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 13em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0; /* Đặt lại margin cho h1 */
+            padding-top: 0.2em; /* Thay đổi margin-top bằng padding-top */
+        }
+
+        header p {
+            margin: 0; /* Xóa margin của phần tử p */
+            padding-top: 1.7em; /* Thêm padding-top để tạo khoảng cách */
+        }
+
+        /* nav styles */
+        nav, footer {
+            font-family: verdana, sans-serif;
+            background-color: #8ABDE8; /* Thay đổi màu nền thành #8ABDE8 */
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Dãn đều các mục li */
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-size: .8em;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            flex: 1;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            border: none; /* Loại bỏ viền */
+            padding: .5em 1em;
+            border-radius: .5em;
+            margin: .25em;
+                text-decoration: none; /* Bỏ gạch chân */
+
+            color: #000; /* Đổi màu chữ thành đen */
+        }
+
+        /* Sub-menu styles */
+        nav ul li ul {
+            display: none; /* Ẩn sub-menu */
+            position: absolute;
+            top: 100%; /* Đặt sub-menu ngay dưới mục chính */
+            left: 5%;
+            background-color: #8ABDE8; /* Màu nền của phần thả xuống */
+            border: 1px solid #ccc;
+            padding: 10px;
+            list-style-type: none;
+            z-index: 1;
+        }
+
+        nav ul li:hover ul {
+            display: block; /* Hiển thị sub-menu khi di chuột vào mục chính */
+        }
+
+        nav ul li ul li {
+            text-transform: none;
+            letter-spacing: normal;
+            font-size: 0.7em; /* Kích thước chữ nhỏ hơn */
+            font-family: verdana, sans-serif; /* Đảm bảo kiểu chữ giống nhau */
+        }
+
+        nav ul li ul li a {
+            color: #000; /* Đổi màu chữ thành đen */
+            text-decoration: none; /* Bỏ gạch chân trong sub-menu */
+            padding: .2em .5em;
+            border: none; /* Loại bỏ viền */
+            border-radius: 0; /* Loại bỏ border-radius */
+            display: block;
+            font-family: verdana, sans-serif; /* Cùng kiểu chữ */
+            font-size: 1.5em; /* Đảm bảo kích thước chữ nhỏ hơn */
+        }
+
+        nav ul li ul li a:hover {
+            background-color: #8ABDE8; /* Thay đổi màu nền khi di chuột */
+            color: #fff; /* Đổi màu chữ khi di chuột */
+        }
+
+        @media screen and (min-width: 400px) {
+            nav ul li {
+                flex: none;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            header p {
+                display: block;
+                margin-top: -1.5em;
+                font-family: Georgia, serif;
+                font-style: italic;
+                font-size: 1.2em;
+            }
+        }
+
+        @media screen and (min-width: 940px) {
+            header h1{
+                grid-area: banner;
+                display: block;
+                margin-top: -0.2em;
+                font-family: Georgia, serif;
+                font-style: italic;
+                font-size: 3em;
+            } 
+        }
+    </style>
     <style>
         .color-circle {
             display: inline-block;
@@ -180,263 +310,20 @@
         .zoom:hover img {
             transform: scale(1.2);
         }
-        input[type="number"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100px;
-            font-size: 1em;
-            color: #545454;
-        }
-    </style>
-    <style>
-        /* Đặt lại margin và padding mặc định */
-        /*
-        body, html {
-            margin: 0;
-            padding: 0;
-        }*/
-
-        /* header styles */
-        header {
-            color: white;
-            background: url(anh2.png) no-repeat center center;
-            background-size: cover;
-            text-align: center;
-            height: 13em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        header h1 {
-            margin: 0; /* Đặt lại margin cho h1 */
-            padding-top: 0.2em; /* Thay đổi margin-top bằng padding-top */
-        }
-
-        header p {
-            margin: 0; /* Xóa margin của phần tử p */
-            padding-top: 1.7em; /* Thêm padding-top để tạo khoảng cách */
-        }
-
-        /* nav styles */
-        nav, footer {
-            font-family: verdana, sans-serif;
-            background-color: #8ABDE8; /* Thay đổi màu nền thành #8ABDE8 */
-        }
-
-        nav ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around; /* Dãn đều các mục li */
-            gap: 20px;
-        }
-
-        nav ul li {
-            font-size: .8em;
-            text-transform: uppercase;
-            letter-spacing: .2em;
-            flex: 1;
-            position: relative;
-        }
-
-        nav ul li a {
-            display: block;
-            border: none; /* Loại bỏ viền */
-            padding: .5em 1em;
-            border-radius: .5em;
-            margin: .25em;
-            text-decoration: none; /* bỏ gạch chân */
-            color: #000; /* Đổi màu chữ thành đen */
-        }
-
-        /* Sub-menu styles */
-        nav ul li ul {
-            display: none; /* Ẩn sub-menu */
-            position: absolute;
-            top: 100%; /* Đặt sub-menu ngay dưới mục chính */
-            left: 5%;
-            background-color: #8ABDE8; /* Màu nền của phần thả xuống */
-            border: 1px solid #ccc;
-            padding: 10px;
-            list-style-type: none;
-            z-index: 1;
-        }
-
-        nav ul li:hover ul {
-            display: block; /* Hiển thị sub-menu khi di chuột vào mục chính */
-        }
-
-        nav ul li ul li {
-            text-transform: none;
-            letter-spacing: normal;
-            font-size: 0.7em; /* Kích thước chữ nhỏ hơn */
-            font-family: verdana, sans-serif; /* Đảm bảo kiểu chữ giống nhau */
-        }
-
-        nav ul li ul li a {
-            color: #000; /* Đổi màu chữ thành đen */
-            text-decoration: none; /* Bỏ gạch chân trong sub-menu */
-            padding: .2em .5em;
-            border: none; /* Loại bỏ viền */
-            border-radius: 0; /* Loại bỏ border-radius */
-            display: block;
-            font-family: verdana, sans-serif; /* Cùng kiểu chữ */
-            font-size: 1.5em; /* Đảm bảo kích thước chữ nhỏ hơn */
-        }
-
-        nav ul li ul li a:hover {
-            background-color: #8ABDE8; /* Thay đổi màu nền khi di chuột */
-            color: #fff; /* Đổi màu chữ khi di chuột */
-        }
-
-        /* main "products" styles */
-        main {
-            font-size: 1em;
-            line-height: 1.4em;
-            color: #555;
-            margin: 2.5%;
-        }
-
-        h2 {
-            font-family: Georgia, serif;
-            font-weight: normal;
-            font-size: 1.5em;
-        }
-
-        p.more {
-            font-family: verdana, sans-serif;
-            text-transform: uppercase;
-            font-size: .8em;
-            clear: left;
-        }
-
-        main img {
-            display: block;
-            margin: .5em auto;
-        }
-
-        /* aside "hours" styles */
-        aside {
-            background: url(images/scallop_top.png) repeat-x left top;
-            background-color: #F6F3ED;
-            padding: 1em;
-        }
-
-        /* misc styles */
-        footer {
-            color: #EADDC4;
-            text-align: center;
-            font-size: .8em;
-            padding: 1em;
-        }
-
-        .day {
-            color: #783F27;
-            font-family: verdana, sans-serif;
-            font-size: .8em;
-            text-transform: uppercase;
-        }
-
-        .linelength {
-            background: yellow;
-        }
-
-        @media screen and (min-width: 400px) {
-            nav ul li {
-                flex: none;
-            }
-
-            nav ul {
-                justify-content: center;
-            }
-        }
-
-        @media screen and (min-width: 480px) {
-            main img {
-                float: left;
-                margin: 0 1em 1em 0;
-            }
-        }
-
-        @media screen and (min-width: 600px) {
-            header p {
-                display: block;
-                margin-top: -1.5em;
-                font-family: Georgia, serif;
-                font-style: italic;
-                font-size: 1.2em;
-            }
-
-            main, h2{
-                font-family: 'Stint Ultra Expanded', Georgia, serif;
-            }
-
-            h2, h3 {
-                font-weight: bold;
-            }
-
-            main {
-                line-height: 1.8em;
-                padding: 1em;
-                border: double 4px #EADDC4;
-                border-radius: 25px;
-                margin: 2.5%;
-            }
-        }
-
-        @media screen and (min-width: 940px) {
-            #container {
-                display: grid;
-                grid-template-rows: auto min-height 5em;
-                grid-template-columns: minmax(25em, 1fr) 16em;
-                grid-template-areas:
-                    "banner banner"
-                    "main hours"
-                    "footer footer";
-                max-width: 1200px;
-                margin: 0 auto;
-                position: relative;
-            }
-
-            header {
-                grid-area: banner;
-            }
-
-            main {
-                grid-area: main;
-            }
-
-            aside {
-                grid-area: hours;
-                background: url(images/scallop.png) repeat-y left top;
-                background-color: #F6F3ED;
-                padding: 1em;
-                padding-left: 45px;
-            }
-
-            footer {
-                grid-area: footer;
-            }
-
-            #award {
-                position: absolute;
-                top: 30px;
-                left: 50px;
-            }
-        }
     </style>
 </head>
 
 <body>
+    <!--Header 1-->
     <header>
-        <h1>Black Goose Bakery</h1>
-        <p>The delicious baked goods you love at Black Goose Bistro...now available to go!</p>
+        <h1>Blue & Blink</h1>
+        <p>Happy birdday ! Sale up to 50% of selected items</p>
     </header>
+    
     <nav>
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
         <ul>
             <li><a href="">TRANG CHỦ</a></li>
             <li><a href="">SẢN PHẨM</a>
@@ -453,8 +340,8 @@
             <li><a href="">KHUYẾN MÃI</a></li>
         </ul>
     </nav>
-    <!--Header 1-->
-  
+  <!--End Header 1-->
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-6">
@@ -512,8 +399,8 @@
                 </p>
                 <p>
                     <strong>Giá:</strong>
-                    <del class="text-muted">942,000đ</del>
-                    <span class="text-danger">520,000đ (Giảm Giá)</span>
+                    <del class="text-muted">942,000 VND</del>
+                    <span class="text-danger">520,000 VND (Giảm Giá)</span>
                 </p>
                 <div class="form-group">
                     <label for="colorSelect">Chọn Màu:</label>
@@ -527,8 +414,6 @@
                         <option value="S">S</option>
                         <option value="M">M</option>
                     </select>
-                    <label for="quantity1">Số lượng:</label>
-                    <br><input type="number" id="quantity1" name="quantity1" min="1" value="1">
                     <!-- Rating Stars -->
                     <div class="mb-3">
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>

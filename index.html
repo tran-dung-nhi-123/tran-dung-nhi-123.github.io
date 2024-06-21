@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            flex-wrap: wrap; /* Đảm bảo rằng các phần tử trong header-top được xếp chồng khi không đủ chỗ */
+        }
+
+        .logo {
+            height: 100px;
+        }
+
+        .search-bar {
+            flex-grow: 0.5;
+            margin: 0 20px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .hotline {
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .user-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-options a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .user-options .cart {
+            color: red;
+        }
+
+        .header-bottom {
+            background-color: #b3d5f2;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .header-bottom ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .header-bottom ul li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .header-bottom ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .header-bottom ul li .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #b3d5f2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 200px;
+        }
+
+        .header-bottom ul li .dropdown a {
+            padding: 10px;
+            border-bottom: 1px solid #b3d5f2;
+            text-align: left;
+        }
+
+        .header-bottom ul li:hover .dropdown {
+            display: block;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            width: calc(50% - 40px); /*200px; /* Đặt chiều rộng cố định cho sản phẩm */
+        }
+        @media (min-width: 768px) {
+            .product {
+                width: calc(33.333% - 40px); /* Điều chỉnh chiều rộng khi màn hình lớn hơn 768px */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .product {
+                width: calc(20% - 40px); /* Điều chỉnh chiều rộng khi màn hình lớn hơn 992px */
+            }
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            background-color:#D2E8FA;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px; /* Đặt chiều cao cố định cho ảnh */
+            object-fit: cover; /* Đảm bảo ảnh vừa với khung mà không bị méo */
+            border-radius: 10px;
+        }
+
+        .product-name {
+            font-weight: bold;
+        }
+
+        .product-price {
+            color: red;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            padding: 10px;
+            background-color: #b3d5f2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #8ABDE8;
+        }
+        
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from { opacity: .4 }
+            to { opacity: 1 }
+        }
+        .new-arrivals-banner {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .new-arrivals-banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        /* CSS cho popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 80%;
+            position: relative;
+           
+        }
+        .popup-content img {
+            max-width: 300%; /* Giới hạn chiều rộng tối đa của ảnh là 100% của phần popup-content */
+            max-height: 300px; /* Giới hạn chiều cao tối đa của ảnh là 300px */
+            object-fit: contain; /* Đảm bảo ảnh vừa với khung mà không bị kéo dãn */
+            border-radius: 10px;
+        }
+        .popup-content button {
+            padding: 5px 10px;
+            background: #f9e2e8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .popup-content button:hover {
+            background: #f9e2e8;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Phần đầu trang -->
+    <header>
+        <div class="header-top">
+            <img src="logo.png" alt="Blue & Blink" class="logo">
+            <input type="text" placeholder="Bạn cần tìm gì?" class="search-bar">
+            <span class="hotline">HOTLINE: <a href="tel:0975696925">0975 69 69 25</a></span>
+            <div class="user-options">
+                <a href="MauDN.html" class="login">Đăng nhập</a>
+                <span>|</span>
+                <a href="MauDN.html" class="register">Đăng ký</a>
+                <a href="#" class="cart">199,000 VND</a>
+            </div>
+        </div>
+        <nav class="header-bottom">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li>
+                    <a href="#">SHOP</a>
+                    <div class="dropdown">
+                        <a href="#">New arrivals</a>
+                        <a href="#">Sale</a>
+                        <a href="#">Coat & Jackets</a>
+                        <a href="#">Dresses</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Short & Skirts</a>
+                        <a href="#">Dungarees & Jumpsuits</a>
+                        <a href="#">Jeans & Trousers</a>
+                    </div>
+                </li>
+                <li><a href="#">MY SHOPEE</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">VỀ CHÚNG TÔI</a></li>
+                
+            </ul>
+        </nav>
+        <!-- Banner -->
+        <div class="banner">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="banner.jpg" alt="Banner 1" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="banne1.jpg" alt="Banner 2" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="banner2.jpg" alt="Banner 3" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Phần thân trang -->
+    <main>
+        <h2>TOP SẢN PHẨM BÁN CHẠY</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="produc1.png" alt="Aoxinhyeu" class="product-image">
+                <p class="product-name">Áo Xinh yêu</p>
+                <p class="product-price">199,000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="product2.png" alt="Aocroptop" class="product-image">
+                <p class="product-name">Valeria Dress</p>
+                <p class="product-price">199,000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="product3.png" alt="chanvay" class="product-image">
+                <p class="product-name">Lilou Mini Dress</p>
+                <p class="product-price">635.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="product4.png" alt="Aophong4" class="product-image">
+                <p class="product-name">Gina Top</p>
+                <p class="product-price">558.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <!--<div class="product">
+                <img src="product5.png" alt="Aophong5" class="product-image">
+                <p class="product-name">Blooming Set</p>
+                <p class="product-price">423.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>-->
+        </div>
+
+        <!-- New arrivals -->
+        <h2>NEW ARRIVALS </h2>
+        <div class="new-arrivals-banner">
+            <img src="bannenew.jpg" alt="New Arrivals Banner">
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="new1.png" alt="New Product 1" class="product-image">
+                <p class="product-name">Manu Dress</p>
+                <p class="product-price">635.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="new2.png" alt="New Product 2" class="product-image">
+                <p class="product-name">Doris Dress</p>
+                <p class="product-price">519.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="new3.png" alt="New Product 3" class="product-image">
+                <p class="product-name">Eleanor Top</p>
+                <p class="product-price">423.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="new4.png" alt="New Product 4" class="product-image">
+                <p class="product-name">Buttercup Top</p>
+                <p class="product-price">423.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <!--<div class="product">
+                <img src="new5.png" alt="New Product 5" class="product-image">
+                <p class="product-name">Noir Little Black Dress</p>
+                <p class="product-price">519.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>-->
+        </div>
+
+        <!-- Sale items -->
+        <h2>SALE ITEMS</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="sale1.png" alt="Sale Product 1" class="product-image">
+                <p class="product-name">Reina Dress</p>
+                <p class="product-price">729.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="sale2.png" alt="Sale Product 2" class="product-image">
+                <p class="product-name">Nana Mini Dress</p>
+                <p class="product-price">808.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="sale3.png" alt="Sale Product 3" class="product-image">
+                <p class="product-name">Phoebe Skirt</p>
+                <p class="product-price">519.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product">
+                <img src="sale4.png" alt="Sale Product 4" class="product-image">
+                <p class="product-name">Phoebe Coat</p>
+                <p class="product-price">904.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <!--<div class="product">
+                <img src="sale5.png" alt="Sale Product 5" class="product-image">
+                <p class="product-name">Adeline Dress</p>
+                <p class="product-price">904.000 VND</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>-->
+        </div>
+    </main>
+    <!-- Popup ảnh -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <button id="close-popup">&times;</button> 
+                <img src="popup.jpg" alt="Popup Image">
+            </div>
+        </div>
+
+
+    <script>
+        window.onload = function() {
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                product.addEventListener('mouseover', () => {
+                    product.style.transform = 'translateY(-10px)';
+                });
+
+                product.addEventListener('mouseout', () => {
+                    product.style.transform = 'translateY(0)';
+                });
+            });
+        };
+    </script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Thay đổi ảnh sau mỗi 3 giây
+        }
+    </script>
+    <script>
+        // JavaScript để hiển thị popup khi trang được tải
+    window.onload = function() {
+        document.getElementById('popup').style.display = 'flex';
+    };
+    
+    // JavaScript để đóng popup khi nhấp vào nút "Close"
+    document.getElementById('close-popup').onclick = function() {
+        document.getElementById('popup').style.display = 'none';
+    };
+    </script>
+     
+</body>
+</html>
