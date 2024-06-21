@@ -44,25 +44,14 @@
         }
 
         header {
-            position: fixed;
             color: white;
-            background: url(anh2.png) no-repeat center center;
+            background: url(anh2.png);
             background-size: cover;
             text-align: center;
             height: 13em;
             display: flex;
             flex-direction: column;
-            z-index: 1000;
-            width: 100%;
             justify-content: center;
-            z-index: 1000; /* Đảm bảo header luôn nằm trên cùng */
-        }
-        nav{
-            position: fixed;
-            top: 13em; 
-            width: 100%;
-            justify-content: center;
-            z-index: 999; /* Đảm bảo header luôn nằm trên cùng */
         }
 
 
@@ -482,6 +471,8 @@
         }
     </script>
   <!--End Header 1-->
+<!-- Back to Top -->
+    <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
     <div class="container mt-5">
         <div class="row">
