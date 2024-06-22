@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue&Blink</title>
+    <title>Giỏ hàng</title>
     <link rel="stylesheet" href="styleGiohang.css">
-    <link rel="icon" type="image/x-icon" href="Anh\Logo.png">
+    <link rel="icon" type="image/x-icon" href="chitietsp\Logo (1).png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3&display=swap">
 	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
@@ -219,7 +219,7 @@
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
-                <img src="Anh\Lilou Mini Dress.png" alt="Lilou Mini Dress"></a>
+                <img src="Anh\Yuri Top.webp" alt="Lilou Mini Dress"></a>
                 <p>Lilou Mini Dress</p>
                 <div class="price">635.000 VND</div>
                 <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
@@ -249,7 +249,7 @@
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
-                <img src="Anh\Penelope Top.png" alt="Penelope Top"></a>
+                <img src="anh\product4.png" alt="Penelope Top"></a>
                 <p>Penelope Top</p>
                 <div class="price">519.000 VND</div>
                 <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
@@ -264,27 +264,26 @@
         </div>
     </div>
 </div>
-    <script src="scriptGiohang.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          // Lấy danh sách các button "Thêm vào giỏ hàng"
-          const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  
-          // Lặp qua từng button và thêm sự kiện click
-          addToCartButtons.forEach(button => {
-              button.addEventListener('click', function() {
-                  // Lấy số lượng hiện tại trong giỏ hàng
-                  let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-  
-                  // Tăng số lượng lên 1
-                  let newCount = currentCount + 1;
-  
-                  // Cập nhật lại số lượng trong giỏ hàng
-                  document.getElementById('cart-counter').innerText = newCount;
-              });
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Lấy danh sách các button "Thêm vào giỏ hàng"
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+      // Lặp qua từng button và thêm sự kiện click
+      addToCartButtons.forEach(button => {
+          button.addEventListener('click', function() {
+              // Lấy số lượng hiện tại trong giỏ hàng
+              let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+
+              // Tăng số lượng lên 1
+              let newCount = currentCount + 1;
+
+              // Cập nhật lại số lượng trong giỏ hàng
+              document.getElementById('cart-counter').innerText = newCount;
           });
       });
-  </script> 
+  });
+</script>
 <!-- FOOTER -->
 <!-- Start Footer Section -->
 <footer class="footer-section">

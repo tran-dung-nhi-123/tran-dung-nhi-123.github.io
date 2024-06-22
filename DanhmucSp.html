@@ -120,10 +120,15 @@
 	  
 		  /* Sản phẩm */
 		  .product {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			flex: 1 1 calc(25% - 20px);
+   			box-sizing: border-box;
+    			text-align: center;
 			position: relative;
 			border: 1px solid #fff;
 			padding: 10px;
-			/* text-align: center; */
 			border-radius: 5px;
 			background-color: #fff;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -133,7 +138,8 @@
 		  }
 		  .product img {
 			max-width: 100%;
-			height: auto;
+			height: 250px;
+			object-fit: cover;
 			transition: filter 0.3s ease-in-out;
 			border-radius: 10px;
 		  }
@@ -150,6 +156,7 @@
 			margin-top: 10px;
 			font-size: 16px;
 			color: #414141;
+			text-align: center;
 		  }
 	  
 		  .product .price .original-price {
@@ -415,6 +422,44 @@
             font-size: 12px;
             }
         }
+	/*cuon trang*/
+        .back-to-top {
+            display: none; /* Ẩn nút ban đầu */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000; /* Đảm bảo nút luôn hiển thị trên cùng */
+        }
+
+        .back-to-top i {
+            line-height: 40px;
+        }
+
+        .back-to-top.show {
+            display: block;
+            opacity: 0.7; /* Điều chỉnh độ mờ của nút khi hiển thị */
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            opacity: 1; /* Hiển thị đầy đủ khi di chuột qua */
+        }
+
+
+			.fa-bars {
+            float: left;
+            margin-left: 10px;
+        }
 		  	</style>
 	  </head>
 	  
@@ -516,7 +561,7 @@
 				<label><input type="radio" name="price" value="450"> <500,000</label><br>
 				<label><input type="radio" name="price" value="500-1000"> 500,000-1,000,000</label><br>
 				<label><input type="radio" name="price" value="1100"> >1,000,000</label><br>
-				<label><input type="radio" name="price" value="all">Tất cả</label><br>
+				<label><input type="radio" name="price" value="all"> Tất cả</label><br>
 			  </div>
 			</div>
 	  
@@ -543,9 +588,9 @@
 					<div style="text-align: center;">
 					  <h3>Chelsea Coat</h3>
 					</a>
-					<p class="price"><span class="original-price">1,500,000</span> Giá: 1,192,000 VND</p>
+					<p class="price"><span class="original-price">1,500,000</span> 1,192,000 VND</p>
 					<button onclick="toggleModal('01')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="01" class="modal">
@@ -555,9 +600,9 @@
 						<img src="TKW/aokhoac1.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Chelsea Coat</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND </h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 1,192,000 VND </h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải tweed </p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -571,9 +616,9 @@
 						<a href="chitietsp.html">
 						<h3>Luna Jacket</h3>
 					  	</a>
-					  <p class="price"><span class="original-price">1,500,000</span> Giá: 1,192,000 VND</p>
+					  <p class="price"><span class="original-price">1,500,000</span> 1,192,000 VND</p>
 					  <button onclick="toggleModal('02')" class="quick-view">Xem nhanh</button>
-					  <p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					  <p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					  <div class="sale-badge">Sale</div>
 					</div>
 					<div id="02" class="modal">
@@ -583,9 +628,9 @@
 						  <img src="TKW/aokhoac2.png" alt="Product Image" style="width: 200px; height: 200px;">
 						  <div style="margin-left: 10px;">
 							<h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Luna Jacket</h4>
-							<h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND </h4>
+							<h4 style=" font-weight: bold; margin-top: 5px;"> 1,192,000 VND </h4>
 							<p style="  margin-top: 5px; color: #999999;">Chất liệu: vải tweed </p>
-							<button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+							<button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						  </div>
 						</div>
 					  </form>
@@ -600,9 +645,9 @@
 					<a href="chitietsp.html">
 					  <h3>Fuzzy Jacket</h3>
 					</a>
-					<p class="price"><span class="original-price">1,500,000</span> Giá: 1,192,000 VND</p>
+					<p class="price"><span class="original-price">1,500,000</span> 1,192,000 VND</p>
 					<button onclick="toggleModal('03')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="03" class="modal">
@@ -612,9 +657,9 @@
 						<img src="TKW/aokhoac3.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Fuzzy Coat</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,192,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 1,192,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải tweed</p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -628,9 +673,9 @@
 					<a href="chitietsp.html">
 					  <h3>Aubrey Trenchcoat</h3>
 					</a>
-					<p class="price"><span class="original-price">1,800,000</span> Giá: 1,324,000 VND</p>
+					<p class="price"><span class="original-price">1,800,000</span>  1,324,000 VND</p>
 					<button onclick="toggleModal('04')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="04" class="modal">
@@ -640,9 +685,9 @@
 						<img src="TKW/aokhoac4.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Aubrey Trenchcoat</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,324,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 1,324,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải tweed</p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -656,9 +701,9 @@
 					<a href="chitietsp.html">
 					  <h3>Maru Dress</h3>
 					</a>
-					<p class="price"><span class="original-price">1,173,000</span> Giá: 635,000 VND</p>
+					<p class="price"><span class="original-price">1,173,000</span>  635,000 VND</p>
 					<button onclick="toggleModal('05')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="05" class="modal">
@@ -668,10 +713,10 @@
 						<img src="TKW/vay1.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Maru Dress</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 635,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 635,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải voan
 						  </p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -686,9 +731,9 @@
 					<a href="chitietsp.html">
 					  <h3>Doris Dress</h3>
 					</a>
-					<p class="price"><span class="original-price">942,000 </span> Giá: 489,000 VND</p>
+					<p class="price"><span class="original-price">942,000 </span> 489,000 VND</p>
 					<button onclick="toggleModal('06')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="06" class="modal">
@@ -698,9 +743,9 @@
 						<img src="TKW/vay2.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Doris Dress</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 489,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 489,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: voan, đũi</p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -715,9 +760,9 @@
 					<a href="chitietsp.html">
 					  <h3>Lemonade Dress</h3>
 					</a>
-					<p class="price"><span class="original-price">1,500,000 </span> Giá: 1,019,000 VND</p>
+					<p class="price"><span class="original-price">1,500,000 </span> 1,019,000 VND</p>
 					<button onclick="toggleModal('07')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="07" class="modal">
@@ -727,9 +772,9 @@
 						<img src="TKW/vay3.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Lemonade Dress</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 1,019,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 1,019,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải đũi </p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -743,9 +788,9 @@
 					<a href="chitietsp.html">
 					  <h3>Katie Dress</h3>
 					</a>
-					<p class="price"><span class="original-price">981,000</span> Giá: 490,000 VND</p>
+					<p class="price"><span class="original-price">981,000</span> 490,000 VND</p>
 					<button onclick="toggleModal('08')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				  <div id="08" class="modal">
@@ -755,9 +800,9 @@
 						<img src="TKW/vay4.png" alt="Product Image" style="width: 200px; height: 200px;">
 						<div style="margin-left: 10px;">
 						  <h4 style=" font-size: 18px; margin-top: 0;margin-left: 5px ;">Katie Dress</h4>
-						  <h4 style=" font-weight: bold; margin-top: 5px;">Giá: 490,000 VND</h4>
+						  <h4 style=" font-weight: bold; margin-top: 5px;"> 490,000 VND</h4>
 						  <p style="  margin-top: 5px; color: #999999;">Chất liệu: vải đũi, voan</p>
-						  <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
+						  <button class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</button>
 						</div>
 					  </div>
 					</form>
@@ -769,9 +814,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao1.png" alt="Sản phẩm 9">
 				  <div style="text-align: center;">
 					<h3>Jelly Top</h3>
-					<p class="price"><span class="original-price">962,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">962,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('09')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -781,9 +826,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao2.png" alt="Sản phẩm 10">
 				  <div style="text-align: center;">
 					<h3>Sweet Shirt</h3>
-					<p class="price"><span class="original-price">808,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">808,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('10')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -793,9 +838,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao3.png" alt="Sản phẩm 11">
 				  <div style="text-align: center;">
 					<h3>Buttercup Top</h3>
-					<p class="price"><span class="original-price">760,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">760,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('11')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -805,9 +850,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao4.png" alt="Sản phẩm 12">
 				  <div style="text-align: center;">
 					<h3>Mã sản phẩm: GK12</h3>
-					<p class="price"><span class="original-price">724,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">724,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('12')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -817,9 +862,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao5.png" alt="Sản phẩm 13">
 				  <div style="text-align: center;">
 					<h3>Enora Top</h3>
-					<p class="price"><span class="original-price">750,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">750,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('13')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -829,9 +874,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao6.png" alt="Sản phẩm 14">
 				  <div style="text-align: center;">
 					<h3>Yuri Top</h3>
-					<p class="price"><span class="original-price">760,000 VND</span> Giá: 519,000 VND</p>
+					<p class="price"><span class="original-price">760,000 VND</span> 519,000 VND</p>
 					<button onclick="toggleModal('14')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -841,9 +886,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao7.png" alt="Sản phẩm 15">
 				  <div style="text-align: center;">
 					<h3>Mirai Cottage Core Shirt</h3>
-					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
+					<p class="price"><span class="original-price">1,030,000 </span> 712,000 VND</p>
 					<button onclick="toggleModal('15')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -853,9 +898,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/ao8.png" alt="Sản phẩm 16">
 				  <div style="text-align: center;">
 					<h3>Cora Tweed Top</h3>
-					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
+					<p class="price"><span class="original-price">1,030,000 </span> 712,000 VND</p>
 					<button onclick="toggleModal('16')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -865,9 +910,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay1.png" alt="Sản phẩm 17">
 				  <div style="text-align: center;">
 					<h3>Phoebe Skirt</h3>
-					<p class="price"><span class="original-price">962,000 </span> Giá: 519,000 VND</p>
+					<p class="price"><span class="original-price">962,000 </span> 519,000 VND</p>
 					<button onclick="toggleModal('17')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -877,9 +922,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay2.png" alt="Sản phẩm 18">
 				  <div style="text-align: center;">
 					<h3>Alicia Tweed Shirt</h3>
-					<p class="price"><span class="original-price">1,135,000 </span> Giá: 616,000 VND</p>
+					<p class="price"><span class="original-price">1,135,000 </span> 616,000 VND</p>
 					<button onclick="toggleModal('18')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -889,9 +934,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay3.png" alt="Sản phẩm 19">
 				  <div style="text-align: center;">
 					<h3>Corduroy Skirt</h3>
-					<p class="price"><span class="original-price">1,030,000 </span> Giá: 712,000 VND</p>
+					<p class="price"><span class="original-price">1,030,000 </span> 712,000 VND</p>
 					<button onclick="toggleModal('19')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -901,9 +946,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay4.png" alt="Sản phẩm 20">
 				  <div style="text-align: center;">
 					<h3>Raven Skirt</h3>
-					<p class="price"><span class="original-price">731,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">731,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('20')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -913,9 +958,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/cvay5.png" alt="Sản phẩm 21">
 				  <div style="text-align: center;">
 					<h3>Blooming Skirt</h3>
-					<p class="price"><span class="original-price">722,000 </span> Giá: 423,000 VND</p>
+					<p class="price"><span class="original-price">722,000 </span> 423,000 VND</p>
 					<button onclick="toggleModal('21')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -925,9 +970,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/22.png" alt="Sản phẩm 22">
 				  <div style="text-align: center;">
 					<h3>Cheezy Jumpsuit</h3>
-					<p class="price"><span class="original-price">942,000 </span> Giá: 519,000 VND</p>
+					<p class="price"><span class="original-price">942,000 </span> 519,000 VND</p>
 					<button onclick="toggleModal('22')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -937,9 +982,9 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/23.png" alt="Sản phẩm 23">
 				  <div style="text-align: center;">
 					<h3>Denim Dungarees</h3>
-					<p class="price"><span class="original-price">1,231,000 </span> Giá: 808,000 VND</p>
+					<p class="price"><span class="original-price">1,231,000 </span> 808,000 VND</p>
 					<button onclick="toggleModal('14')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
 				</div>
@@ -950,26 +995,12 @@
 					onmouseout="this.style.filter='brightness(100%)';" src="TKW/pkien.png" alt="Sản phẩm 24">
 				  <div style="text-align: center;">
 					<h3>Summer Bandana</h3>
-					<p class="price"><span class="original-price">250,000 VND</span> Giá: 179,000 VND</p>
+					<p class="price"><span class="original-price">250,000 VND</span> 179,000 VND</p>
 					<button onclick="toggleModal('16')" class="quick-view">Xem nhanh</button>
-					<p class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</p>
+					<p class="add-to-cart" id="add-to-cart1">Thêm vào giỏ hàng</p>
 					<div class="sale-badge">Sale</div>
 				  </div>
-				</div>
-				<script>
-				        // JavaScript code
-				        document.getElementById('add-to-cart').addEventListener('click', function() {
-				            // Get the current cart counter value
-				            let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-				
-				            // Increment the counter
-				            let newCount = currentCount + 1;
-				
-				            // Update the counter display
-				            document.getElementById('cart-counter').innerText = newCount;
-				        });
-				</script>
-	  
+				</div>	  
 			  </div>
 			  <div class="pagination" style="margin-top: 10px;">
 				<ul>
@@ -980,6 +1011,26 @@
 			  </div>
 			</div>
 		  </div>
+		<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Lấy danh sách các button "Thêm vào giỏ hàng"
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+                // Lặp qua từng button và thêm sự kiện click
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Lấy số lượng hiện tại trong giỏ hàng
+                        let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+        
+                        // Tăng số lượng lên 1
+                        let newCount = currentCount + 1;
+        
+                        // Cập nhật lại số lượng trong giỏ hàng
+                        document.getElementById('cart-counter').innerText = newCount;
+                    });
+                });
+            });
+        </script>
 		  <!-- Sản phẩm nổi bật -->
 		  <div>
 			<h2 style="text-align: center;">Sản phẩm nổi bật</h2>

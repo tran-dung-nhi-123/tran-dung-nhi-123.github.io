@@ -13,7 +13,7 @@
         /* CSS chỉnh giao diện trang */
 		  @import url(TKW.css);
 		  @import url(bootstrap.css);
-          @import url(dautrang.css);
+          	@import url(dautrang.css);
         
         body {
             font-family: Arial, sans-serif;
@@ -78,9 +78,9 @@
         text-transform: uppercase; /* Chuyển đổi thành chữ in hoa */
         margin-bottom: 20px; /* Để khoảng cách với danh sách sản phẩm */
         }
-        /* Định nghĩa màu xanh nhạt hơn cho h2 */
+        
         h2 {
-            color: #b3d5f2; /* Màu xanh nhạt */
+            color: #81b9eb; 
             text-decoration: none; /* Loại bỏ gạch chân */
             transition: color 0.3s; /* Hiệu ứng chuyển đổi màu khi hover */
         }
@@ -88,6 +88,10 @@
         /* Điều chỉnh màu khi hover qua */
         h2:hover {
             color: #67b0ef; /* Màu xanh đậm khi hover */
+        }
+
+        a {
+            text-decoration: none; /* Loại bỏ gạch chân */   
         }
 
         .product img {
@@ -176,8 +180,8 @@
            
         }
         .popup-content img {
-            max-width: 500%; /* Giới hạn chiều rộng tối đa của ảnh là 100% của phần popup-content */
-            max-height: 500px; /* Giới hạn chiều cao tối đa của ảnh là 300px */
+            max-width: 100%; /* Giới hạn chiều rộng tối đa của ảnh là 100% của phần popup-content */
+            max-height: 300px; /* Giới hạn chiều cao tối đa của ảnh là 300px */
             object-fit: contain; /* Đảm bảo ảnh vừa với khung mà không bị kéo dãn */
             /*border-radius: 10px;*/
         }
@@ -367,7 +371,7 @@
                 <img src="new5.png" alt="New Product 5" class="product-image">
                 <p class="product-name">Valeria Dress</p>
                 <p class="product-price">199,000 VND</p>
-                <button class="add-to-cart1">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
             </div>-->
         </div>
         <!-- Sale items -->
@@ -411,22 +415,30 @@
                 <img src="sale5.png" alt="Sale Product 5" class="product-image">
                 <p class="product-name">Adeline Dress</p>
                 <p class="product-price">904.000 VND</p>
-                <button class="add-to-cart1">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
             </div>-->
         </div>
-	<script>
-        // JavaScript code
-        document.getElementById('add-to-cart1').addEventListener('click', function() {
-            // Get the current cart counter value
-            let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-
-            // Increment the counter
-            let newCount = currentCount + 1;
-
-            // Update the counter display
-            document.getElementById('cart-counter').innerText = newCount;
-        });
-    </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Lấy danh sách các button "Thêm vào giỏ hàng"
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+                // Lặp qua từng button và thêm sự kiện click
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Lấy số lượng hiện tại trong giỏ hàng
+                        let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+        
+                        // Tăng số lượng lên 1
+                        let newCount = currentCount + 1;
+        
+                        // Cập nhật lại số lượng trong giỏ hàng
+                        document.getElementById('cart-counter').innerText = newCount;
+                    });
+                });
+            });
+        </script>
+            
     </main>
 
     <!-- Popup ảnh -->
@@ -436,7 +448,6 @@
             <img src="anh/popupnew.JPG" alt="Popup Image">
         </div>
     </div>
-
 
 <script>
     window.onload = function() {
@@ -478,37 +489,6 @@ window.onload = function() {
 document.getElementById('close-popup').onclick = function() {
     document.getElementById('popup').style.display = 'none';
 };
-</script>
-<!--cuon trang-->
-<script>
-    // Đợi cho tài liệu HTML và CSS được tải xong
-document.addEventListener('DOMContentLoaded', function() {
-    // Bắt sự kiện khi người dùng cuộn trang
-    window.addEventListener('scroll', function() {
-        // Lấy vị trí hiện tại của cuộn trang
-        var scrollPos = window.scrollY || window.pageYOffset;
-
-        // Lấy nút "Back to Top"
-        var backToTopBtn = document.querySelector('.back-to-top');
-
-        // Nếu vị trí cuộn lớn hơn 500px, hiển thị nút "Back to Top", ngược lại ẩn đi
-        if (scrollPos > 500) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
-
-    // Bắt sự kiện khi click vào nút "Back to Top"
-    document.querySelector('.back-to-top').addEventListener('click', function(e) {
-        e.preventDefault();
-        // Cuộn lên đầu trang với độ mượt mà
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-});
 </script>
 <!--Footer-->
 <!-- Start Footer Section -->

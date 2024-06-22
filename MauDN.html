@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="anh/logo.png">
     <title>Đăng Nhập / Đăng Ký</title>
     <style>
         body {
@@ -245,6 +246,21 @@
 
             if (username && password) {
                 // Handle login logic here
+            } else {
+                document.getElementById('error-notification').classList.add('active');
+                setTimeout(function() {
+                    document.getElementById('error-notification').classList.remove('active');
+                }, 3000);
+            }
+        });
+        document.getElementById('login-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (username && password) {
+                // Nếu thông tin đăng nhập hợp lệ
+                window.location.href = 'index.html';
             } else {
                 document.getElementById('error-notification').classList.add('active');
                 setTimeout(function() {
