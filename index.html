@@ -419,19 +419,26 @@
             </div>-->
         </div>
         <script>
-            // JavaScript code
-            document.getElementById('add-to-cart1').addEventListener('click', function() {
-		
-                // Get the current cart counter value
-                let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-    
-                // Increment the counter
-                let newCount = currentCount + 1;
-    
-                // Update the counter display
-                document.getElementById('cart-counter').innerText = newCount;
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Lấy danh sách các button "Thêm vào giỏ hàng"
+                const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+                // Lặp qua từng button và thêm sự kiện click
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Lấy số lượng hiện tại trong giỏ hàng
+                        let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+        
+                        // Tăng số lượng lên 1
+                        let newCount = currentCount + 1;
+        
+                        // Cập nhật lại số lượng trong giỏ hàng
+                        document.getElementById('cart-counter').innerText = newCount;
+                    });
+                });
             });
-        </script>    
+        </script>   
     </main>
 
     <!-- Popup ảnh -->
