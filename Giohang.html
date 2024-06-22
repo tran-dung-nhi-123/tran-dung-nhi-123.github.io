@@ -165,28 +165,28 @@
                 <img src="Anh\Blooming Skort.webp" alt="Blooming Skort"></a>
                 <p>Blooming Skort</p>
                 <div class="price">423.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">  
               <img src="Anh\Buttercup Top.webp" alt="Buttercup Top"></a>
                 <p>Buttercup Top</p>
                 <div class="price">423.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">  
               <img src="Anh\Doris Dress.webp" alt="Doris Dress"></a>
                 <p>Doris Dress</p>
                 <div class="price">519.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Eleanor Top.webp" alt="Eleanor Top"></a>
                 <p>Eleanor Top</p>
                 <div class="price">423.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -201,28 +201,28 @@
                 <img src="Anh\Evelyn Dress.webp" alt="Evelyn Dress"></a>
                 <p>Evelyn Dress</p>
                 <div class="price">618.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Gina Top.webp" alt="Gina Top"></a>
                 <p>Gina Top</p>
                 <div class="price">558.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Hotaru Dress.webp" alt="Hotaru Dress"></a>
                 <p>Hotaru Dress</p>
                 <div class="price">423.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Lilou Mini Dress.png" alt="Lilou Mini Dress"></a>
                 <p>Lilou Mini Dress</p>
                 <div class="price">635.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -238,46 +238,53 @@
                 <img src="Anh\Maru Dress.webp" alt="Maru Dress"></a>
                 <p>Maru Dress</p>
                 <div class="price">635.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Miley Dress.webp" alt="Miley Dress"></a>
                 <p>Miley Dress</p>
                 <div class="price">519.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Penelope Top.png" alt="Penelope Top"></a>
                 <p>Penelope Top</p>
                 <div class="price">519.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
             <div class="product-item">
               <a href="chitietsp.html">
                 <img src="Anh\Valeria Dress.webp" alt="Valeria Dress"></a>
                 <p>Valeria Dress</p>
                 <div class="price">519.000 VND</div>
-                <button id="add-to-cart">Thêm vào giỏ hàng</button>
+                <button class="add-to-cart" id="add-to-cart">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
 </div>
     <script src="scriptGiohang.js"></script>
     <script>
-      // JavaScript code
-      document.getElementById('add-to-cart').addEventListener('click', function() {
-          // Get the current cart counter value
-          let currentCount = parseInt(document.getElementById('cart-counter').innerText);
-
-          // Increment the counter
-          let newCount = currentCount + 1;
-
-          // Update the counter display
-          document.getElementById('cart-counter').innerText = newCount;
+      document.addEventListener('DOMContentLoaded', function() {
+          // Lấy danh sách các button "Thêm vào giỏ hàng"
+          const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  
+          // Lặp qua từng button và thêm sự kiện click
+          addToCartButtons.forEach(button => {
+              button.addEventListener('click', function() {
+                  // Lấy số lượng hiện tại trong giỏ hàng
+                  let currentCount = parseInt(document.getElementById('cart-counter').innerText);
+  
+                  // Tăng số lượng lên 1
+                  let newCount = currentCount + 1;
+  
+                  // Cập nhật lại số lượng trong giỏ hàng
+                  document.getElementById('cart-counter').innerText = newCount;
+              });
+          });
       });
-  </script>  
+  </script> 
 <!-- FOOTER -->
 <!-- Start Footer Section -->
 <footer class="footer-section">
