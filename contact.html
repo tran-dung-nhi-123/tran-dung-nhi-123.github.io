@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--để xác định cách trình duyệt web hiển thị nội dung trên các thiết bị di động và máy tính bảng.-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add this to your head -->
@@ -37,113 +38,120 @@
         }
         /* Đặt lại margin và padding mặc định */
         body, html {
-            margin: 0;
+            margin: 0; /*--Đặt margin và padding của các phần tử body và html về 0, loại bỏ khoảng cách mặc định*/
             padding: 0;
         }
 
         header {
-            color: white;
-            background: url(anh2.png);
-            background-size: cover;
+            color: white; /*mau chữ*/
+            background: url(anh2.png) no-repeat center center; /*ảnh giữa*/
+            background-size: cover; /*tự động phóng to, thu nhỏ hợp với header*/
             text-align: center;
-            height: 13em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            height: 13em; /*chiều cao header 13em*/
+            display: flex; /*Sử dụng Flexbox để căn chỉnh các phần tử con*/
+            flex-direction: column;/*Các phần tử con được sắp xếp theo cột*/
+            justify-content: center;/*Căn giữa các phần tử con theo chiều dọc.*/
         }
 
         header h1 {
             margin: 0;
-            padding-top: 0.2em;
-            font-family: Georgia, serif; /* Phông chữ mặc định */
+            padding-top: 0.2em;/*Thêm khoảng đệm trên 0.2em.*/
+            font-family: Georgia, serif; /* Phông chữ mặc định Georgia hoặc serif.*/
             font-style: italic;          /* Kiểu chữ mặc định */
             font-size: 1.5em;            /* Kích thước chữ mặc định */
         }
 
         header p {
             margin: 0;
-            padding-top: 1.7em;
+            padding-top: 1.7em;/* khoảng đệm trên 1.7em.*/
             font-family: Georgia, serif; /* Phông chữ mặc định */
-            font-style: italic;          /* Kiểu chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định :chữ nghiêng*/
             font-size: 1em;              /* Kích thước chữ mặc định */
         }
 
-        nav, footer {
-            font-family: verdana, sans-serif;
-            background-color: #8ABDE8;
+        nav, footer {/*phần tử nav và footer*/
+            font-family: verdana, sans-serif; /*phông chữ Verdana hoặc sans-serif.*/
+            background-color: #8ABDE8;/*màu background*/
         }
 
-        nav ul {
+        nav ul { /* phần tử ul bên trong nav*/
             margin: 0;
             padding: 0;
-            list-style-type: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            list-style-type: none;/*Loại bỏ dấu đầu dòng của danh sách ul là "." (((ol là 1,2,3)))*/
+            display: flex;/*Flexbox để căn chỉnh các phần tử con*/
+            flex-wrap: wrap;/*Cho phép các phần tử con xuống dòng nếu không đủ chỗ.*/
+            justify-content: center;/*Căn giữa các phần tử con theo chiều ngang.*/
+            gap: 20px;/*Khoảng cách giữa các phần tử là 20px.*/
         }
 
-        nav ul li {
-            font-size: .8em;
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            position: relative;
+        nav ul li {/*phần tử li bên trong ul của nav.*/
+            font-size: .8em; /*cỡ chữ*/
+            text-transform: uppercase;/*Chuyển đổi chữ thường thành chữ in hoa.*/
+            letter-spacing: .1em;/*Khoảng cách giữa các chữ cái là 0.1em.*/
+            position: relative;/*Đặt vị trí tương đối để hỗ trợ các phần tử con tuyệt đối.*/
         }
 
-        nav ul li a {
-            display: block;
-            border: none;
-            padding: .5em 1em;
-            border-radius: .5em;
-            margin: .25em;
-            text-decoration: none;
-            color: #000;
+        nav ul li a {/*phần tử a bên trong li của nav*/
+            display: block;/*Hiển thị phần tử dưới dạng khối*/
+            border: none;/*bỏ viền*/
+            padding: .5em 1em;/*Thêm khoảng đệm 0.5em trên dưới và 1em trái phải.*/
+            border-radius: .5em;/*Bo tròn các góc với bán kính 0.5em.*/
+            margin: .25em;/*Thêm khoảng cách ngoài 0.25em.*/
+            text-decoration: none;/*loại bỏ gạch chân*/
+            color: #000;/*màu đen*/
         }
 
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #8ABDE8;
-            border: 1px solid #ccc;
-            padding: 10px;
-            list-style-type: none;
-            z-index: 1;
-            width: 200px; /* Tăng độ rộng của ô thả xuống */
+        nav ul li ul {/*phần tử ul con bên trong li của nav.*/
+            display: none;/*Ẩn phần tử thả xuống*/
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: 100%; /*Đặt phần tử con phía dưới phần tử cha.*/
+            left: 0;/*Căn trái phần tử con với phần tử cha.*/
+            background-color: #8ABDE8;/*màu nền thả xuống*/
+            border: 1px solid #ccc;/*Thêm viền màu xám nhạt.*/
+            padding: 10px;/*Thêm khoảng đệm 10px.*/
+            list-style-type: none;/*Loại bỏ dấu đầu dòng của danh sách "."*/
+            z-index: 1;/* Đảm bảo phần tử nằm trên các phần tử khác.*/
+            width: 200px; /* Độ rộng của ô thả xuống */
         }
 
-        nav ul li:hover ul {
-            display: block;
+        nav ul li:hover ul { /*Khi phần tử li được di chuột qua, phần tử ul con sẽ được hiển thị.*/
+            display: block;/*Hiển thị phần tử dưới dạng khối.*/
         }
 
-        nav ul li ul li {
-            text-transform: none;
-            letter-spacing: normal;
-            font-size: 0.7em;
-            font-family: verdana, sans-serif;
+        nav ul li ul li {/*phần tử li bên trong ul con của nav.*/
+            text-transform: none;/*k đổi phông chữ*/
+            letter-spacing: normal;/*Khoảng cách giữa các chữ cái bình thường.*/
+            font-size: 0.7em;/*kích cỡ chữ*/
+            font-family: verdana, sans-serif;/*phông chữ Verdana hoặc sans-serif.*/
         }
 
-        nav ul li ul li a {
-            color: #000;
-            text-decoration: none;
-            padding: .2em .5em;
-            border: none;
-            border-radius: 0;
-            display: block;
-            font-family: verdana, sans-serif;
-            font-size: 1.5em;
+        nav ul li ul li a {/*phần tử a bên trong li của ul con.*/
+            color: #000;/*màu chữ đen*/
+            text-decoration: none;/*bỏ gạch chân*/
+            padding: .2em .5em;/*khoảng đệm 0.2em trên dưới và 0.5em trái phải.*/
+            border: none;/*Loại bỏ viền*/
+            border-radius: 0;/*k bo góc viền*/
+            display: block;/*phần tử dưới dạng khối*/
+            font-family: verdana, sans-serif;/*phông chữ Verdana hoặc sans-serif.*/
+            font-size: 1.5em;/* cỡ chữ*/
         }
 
-        nav ul li ul li a:hover {
-            background-color: #8ABDE8;
-            color: #fff;
+        nav ul li ul li a:hover { /* phần tử a được di chuột qua, màu nền và màu chữ thay đổi.*/
+            background-color: #8ABDE8;/*màu nền thay khi lướt qua*/
+            color: #fff;/*màu chữ thay khi lướt qua*/
         }
+
+
+
+        /*áp dụng css này khi chiều rộng màn hình <=767px */
 
         @media screen and (max-width: 767px) {
+            /* Hiển thị nút chuyển đổi navbar.*/
             .navbar-toggler {
                 display: block;
             }
+
+            /*Ẩn ul và sắp xếp các phần tử con theo cột, không có khoảng cách.*/
 
             nav ul {
                 display: none;
@@ -151,32 +159,49 @@
                 gap: 0;
             }
 
+            /*Hiển thị ul khi có lớp show.*/
+
             nav ul.show {
                 display: flex;
             }
 
+            /*Ẩn ul con khi phần tử li được di chuột qua.*/
+
             nav ul li:hover ul {
                 display: none;
             }
+
+            /*Hiển thị ul con khi có lớp show.*/
 
             nav ul li ul.show {
                 display: block;
             }
         }
 
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 768px*/
+
         @media screen and (min-width: 768px) {
+
+            /*Ẩn nút chuyển đổi navbar.*/
             .navbar-toggler {
                 display: none;
             }
+
+            /*Hiển thị ul và sắp xếp các phần tử con theo hàng.*/
 
             nav ul {
                 display: flex;
             }
 
+            /*Ẩn ul con khi có lớp show.*/
+
             nav ul li ul.show {
                 display: none;
             }
         }
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 600px.*/
 
         @media screen and (min-width: 600px) {
             header p {
@@ -184,7 +209,11 @@
                 margin-top: -1.5em;
                 font-size: 1.2em;
             }
+            /*Hiển thị p trong header, đặt margin trên là -1.5em và kích thước chữ là 1.2em.*/
         }
+
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 940px.*/
 
         @media screen and (min-width: 940px) {
             header h1 {
@@ -192,54 +221,63 @@
                 margin-top: -0.2em;
                 font-size: 3em;
             } 
+            /*Hiển thị h1 trong header, đặt margin trên là -0.2em và kích thước chữ là 3em.*/
         }
 
         /* Existing CSS */
         /* Additional CSS for search and cart */
+        /* Thiết lập các thuộc tính cho container của tìm kiếm và giỏ hàng.*/
         .search-cart-container {
-            position: fixed;
-            top: 15px;
+            position: fixed;/*Đặt vị trí cố định khi di chuyển trang*/
+            top: 15px; /*Cách trên 15px.*/
             right: 15px; /* Di chuyển một chút sang trái */
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            display: flex;/* Sử dụng Flexbox để căn chỉnh các phần tử con.*/
+            align-items: center;/*Căn giữa các phần tử con theo chiều dọc.*/
+            gap: 20px;/*khoảng cách giữa tìm kiếm và giỏ hàng*/
             z-index: 1000; /* Đảm bảo nó ở trên các phần tử khác */
         }
 
         .search-container, .cart-container {
-            position: relative;
+            position: relative;/*Đặt vị trí tương đối*/
         }
 
         .search-container a, .cart-container a {
             color: #13538A; /* Đặt màu cho biểu tượng */
         }
 
+        /*Thiết lập các thuộc tính cho input của tìm kiếm*/
+
         .search-container input {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            z-index: 2;
-            width: 200px;
-            padding: 5px;
-            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn */
-            border-radius: 5px;
+            display: none;/*ẩn search...*/
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: 100%;/*search dưới nút tìm kiếm*/
+            right: 0;/*căn phải phần tử con với phần tử cha*/
+            z-index: 2;/* Đảm bảo phần tử nằm trên các phần tử khác: search... đè lên nền*/
+            width: 200px;/*độ rông*/
+            padding: 5px;/*khoảng đêm*/
+            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn viền đen cho search...*/
+            border-radius: 5px; /*Bo tròn các góc với bán kính 5px.*/
         }
+
+        /*thiết lập biểu tượng giỏ hàng*/
 
         .cart-icon {
             position: relative;
-            font-size: 1.5em;
+            font-size: 1.5em;/* Kích thước biểu tượng là 1.5em.*/
         }
 
+        /*Thiết lập thuộc tính cho số hiện ở giỏ hàng*/
+
         .cart-counter {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #ED6C6C;
-            border-radius: 50%;
-            padding: 0px 5px;
-            font-size: 0.8em;
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: -10px; /*Đặt phần tử cách trên 10px.*/
+            right: -10px;/*Đặt phần tử cách phải 10px*/
+            background-color: #ED6C6C;/*màu nền cam*/
+            border-radius: 50%;/*Bo tròn các góc với bán kính 50%.*/
+            padding: 0px 5px;/*đệm 0px trên dưới và 5px trái phải.*/
+            font-size: 0.8em;/*cỡ số*/
         }
+        
     </style>
     <style>
         .btn-blue {
@@ -247,34 +285,39 @@
             color: white;
         }
 
+        /*Thiết lập các thuộc tính cho các phần tử có lớp responsive-map.*/
+
         .responsive-map {
-            position: relative;
-            overflow: hidden;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;/*Đặt vị trí tương đối để chứa phần tử con tuyệt đối.*/
+            overflow: hidden;/*Ẩn bất kỳ nội dung nào vượt quá giới hạn phần tử.*/
+            padding-top: 56.25%; /* Thiết lập tỷ lệ khung hình 16:9 bằng cách sử dụng padding-top. */
         }
 
+
+        /*Thiết lập các thuộc tính cho các phần tử iframe bên trong phần tử có lớp responsive-map*/
+
         .responsive-map iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+            position: absolute;/*Đặt vị trí tuyệt đối để nó nằm chính xác bên trong phần tử cha.*/
+            top: 0; /*phần tử con nằm ở đỉnh của phần tử cha*/
+            left: 0;/*phần tử con nằm ở bên trái của phần tử cha*/
+            width: 100%;/*Chiều rộng của phần tử con là 100% chiều rộng của phần tử cha.*/
+            height: 100%;/*Chiều cao*/
+            border: 0;/*bỏ viền*/
         }
         
         /*style popup*/
     
         .popup {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            display: none;/*ẩn popup*/
+            position: fixed;/*vị trí cố định trên màn hình*/
+            left: 50%;/*căn giữa chiều ngang*/
+            top: 50%; /*căn giữa chiều dọc*/
+            transform: translate(-50%, -50%); /*Dịch chuyển phần tử sang trái 50% và lên trên 50% để căn giữa chính xác.*/
+            padding: 20px; /*Thêm khoảng đệm 20px*/
+            border: 1px solid #ccc; /*Thêm viền màu xám nhạt cho popup*/
+            background-color: white; /*màu nền popup*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ xung quanh phần tử popup*/
+            z-index: 1000; /*đè lên ptu khác*/
             width: 300px; /* Chiều rộng của popup */
             text-align: center; /* Căn giữa nội dung */
         }
@@ -283,15 +326,17 @@
             text-align: center; /* Căn giữa chữ */
         }
 
+        /* khi hiển thị popup*/
+
         .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            display: none;/*ẩn*/
+            position: fixed;/*cố đinh*/
+            top: 0; /*đỉnh màn hình*/
+            left: 0;/*trái màn hình*/
+            width: 100%;/*rộng toàn màn hình*/
+            height: 100%;/*cao toàn màn hình*/
+            background: rgba(0, 0, 0, 0.5);/*đen mờ 50%*/
+            z-index: 999;/*đè lên tất cả trừ popup*/
         }
 
         
@@ -345,11 +390,17 @@
             <span class="cart-counter">0</span>
         </div>
     </div>
+
+    <!--script cho header-->
+
     <script>
         function toggleMenu() {
             const navUl = document.querySelector('nav ul');
-            navUl.classList.toggle('show');
+            navUl.classList.toggle('show'); //để khi thu nhỏ màn hình thì ẩn menu cho vào biểu tương click vào hiện ra menu
         }
+
+
+        /*Hàm này dùng để hiện hoặc ẩn submenu khi người dùng nhấn vào mục menu có submenu.*/
 
         function toggleSubmenu(event) {
             event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
@@ -357,10 +408,12 @@
             submenu.classList.toggle('show');
         }
 
+        /*Hàm này dùng để hiện hoặc ẩn ô tìm kiếm khi người dùng nhấn vào biểu tượng tìm kiếm.*/
+
         function toggleSearch(event) {
             event.preventDefault();
-            const searchInput = event.target.closest('.search-container').querySelector('input');
-            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+            const searchInput = event.target.closest('.search-container').querySelector('input'); //Tìm phần tử input trong search-container.
+            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block'; //Kiểm tra trạng thái hiển thị hiện tại của ô tìm kiếm và chuyển đổi giữa hiển thị (block) và ẩn (none).
         }
     </script>
     <!--End Header 1-->
@@ -370,11 +423,15 @@
         <div class="responsive-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.6206513694724!2d105.82538047387551!3d21.007838188499548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac806cfc0845%3A0x3848505bd3b9490f!2zMTIgUC4gQ2jDuWEgQuG7mWMsIFF1YW5nIFRydW5nLCDEkOG7kW5nIMSQYSwgSMOgIE7hu5lpIDEwMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1718553648965!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="container py-5">
-            <div class="p-5 bg-light rounded">
-                <div class="row g-4">
-                    <div class="col-12">
-                        <div class="text-center mx-auto" style="max-width: 800px;">
+        <div class="container py-5"> <!--Một div với class "container" để tạo một khung chứa và "py-5" để tạo khoảng đệm 
+                                        trên và dưới (padding-y) là 3rem (48px) theo Bootstrap.-->
+            <div class="p-5 bg-light rounded">  <!--class "p-5" để tạo khoảng đệm xung quanh (padding) là 3rem, 
+                                                "bg-light" để thiết lập nền màu sáng, và "rounded" để làm tròn các góc-->
+                <div class="row g-4"> <!--Một div với class "row" để tạo một hàng trong Bootstrap grid và "g-4" để thiết 
+                                        lập khoảng cách giữa các cột (gutter) là 1.5rem (24px).-->
+                    <div class="col-12">  <!--class "col-12" để tạo một cột chiếm toàn bộ chiều rộng của hàng.-->
+                        <div class="text-center mx-auto" style="max-width: 800px;"> <!--để giới hạn chiều rộng tối đa 
+                                                                                        của div là 800px-->
                             <p style = "font-style: italic; color:#1C4D8D;font-size: 18px; text-align: center;">Blue&Blink luôn lắng nghe phản hồi của khách hàng về sản phẩm đế trải nghiệm tốt nhất cho từng khách hàng khi mua sản phẩm. Hãy liên hệ với chúng tôi để được tư vấn kỹ càng!
                             </p>
                         </div>
@@ -386,10 +443,10 @@
                         </div>
                         <br>
                         <form id="contactForm" action="" class="">
-                            <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Tên của bạn" required>
+                            <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Tên của bạn" required> <!--required: ô bắt buộc phải điền-->
                             <input type="email" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder=" Email của bạn" required>
                             <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Địa chỉ" required>
-                            <input type="text" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Điện thoại" required>
+                            <input type="tel" pattern="[0-9]{10}" class="w-100 form-control border-secondary border-1 py-3 mb-4" placeholder="Điện thoại" required title="Số điện thoại 10 chữ số">
                             <textarea class="w-100 form-control border-secondary border-1 mb-4" rows="5" cols="10" placeholder="Nội dung" required></textarea>
                             <button class="btn btn-blue" type="submit">Gửi</button>
                         </form>
@@ -403,6 +460,7 @@
                         <p>Gửi thành công!</p>
                         <button class="btn btn-blue" onclick="closePopup()">Đóng</button>
                     </div>
+
      
                 </div>
             </div>
@@ -413,19 +471,30 @@
 
     <!--Script cho popup-->
     <script>
+        /*sự kiện 'submit' vào form*/
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            showPopup();
+            event.preventDefault();/*Ngăn chặn hành vi mặc định của form (gửi dữ liệu và tải lại trang).*/
+            showPopup();/*Gọi hàm showPopup() để hiển thị popup thành công.*/
         });
 
+        //khi mở popup 
+
         function showPopup() {
+            /*Hiển thị lớp phủ nền mờ (overlay)*/
             document.getElementById('popupOverlay').style.display = 'block';
+            /*Hiển thị popup thành công.*/
             document.getElementById('successPopup').style.display = 'block';
         }
 
+        //khi đóng popup 
+
         function closePopup() {
+            /*Ẩn lớp phủ nền mờ (overlay)*/
             document.getElementById('popupOverlay').style.display = 'none';
+            /*Ẩn popup thành công.*/
             document.getElementById('successPopup').style.display = 'none';
+            window.location.reload();         /*load lại trang khi closepopup*/
+
         }
     </script>
 
@@ -437,16 +506,8 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script>
-      var gui = document.getElementById('gui'); 
-      gui.addEventListener('click', function(){
-        alert("Cảm ơn bạn đã liên hệ với chúng tôi!"); 
-      })
-    </script>  
-
     
+
     <!--footer-->
         <footer class="footer-section">
             <div class="container relative">
