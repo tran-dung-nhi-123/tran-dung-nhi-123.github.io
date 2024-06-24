@@ -39,114 +39,120 @@
     <style>
         /* Đặt lại margin và padding mặc định */
         body, html {
-            margin: 0;
+            margin: 0; /*--Đặt margin và padding của các phần tử body và html về 0, loại bỏ khoảng cách mặc định*/
             padding: 0;
         }
 
         header {
-            color: white;
-            background: url(anh2.png);
-            background-size: cover;
+            color: white; /*mau chữ*/
+            background: url(anh2.png) no-repeat center center; /*ảnh giữa*/
+            background-size: cover; /*tự động phóng to, thu nhỏ hợp với header*/
             text-align: center;
-            height: 13em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            height: 13em; /*chiều cao header 13em*/
+            display: flex; /*Sử dụng Flexbox để căn chỉnh các phần tử con*/
+            flex-direction: column;/*Các phần tử con được sắp xếp theo cột*/
+            justify-content: center;/*Căn giữa các phần tử con theo chiều dọc.*/
         }
-
 
         header h1 {
             margin: 0;
-            padding-top: 0.2em;
-            font-family: Georgia, serif; /* Phông chữ mặc định */
+            padding-top: 0.2em;/*Thêm khoảng đệm trên 0.2em.*/
+            font-family: Georgia, serif; /* Phông chữ mặc định Georgia hoặc serif.*/
             font-style: italic;          /* Kiểu chữ mặc định */
             font-size: 1.5em;            /* Kích thước chữ mặc định */
         }
 
         header p {
             margin: 0;
-            padding-top: 1.7em;
+            padding-top: 1.7em;/* khoảng đệm trên 1.7em.*/
             font-family: Georgia, serif; /* Phông chữ mặc định */
-            font-style: italic;          /* Kiểu chữ mặc định */
+            font-style: italic;          /* Kiểu chữ mặc định :chữ nghiêng*/
             font-size: 1em;              /* Kích thước chữ mặc định */
         }
 
-        nav, footer {
-            font-family: verdana, sans-serif;
-            background-color: #8ABDE8;
+        nav, footer {/*phần tử nav và footer*/
+            font-family: verdana, sans-serif; /*phông chữ Verdana hoặc sans-serif.*/
+            background-color: #8ABDE8;/*màu background*/
         }
 
-        nav ul {
+        nav ul { /* phần tử ul bên trong nav*/
             margin: 0;
             padding: 0;
-            list-style-type: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            list-style-type: none;/*Loại bỏ dấu đầu dòng của danh sách ul là "." (((ol là 1,2,3)))*/
+            display: flex;/*Flexbox để căn chỉnh các phần tử con*/
+            flex-wrap: wrap;/*Cho phép các phần tử con xuống dòng nếu không đủ chỗ.*/
+            justify-content: center;/*Căn giữa các phần tử con theo chiều ngang.*/
+            gap: 20px;/*Khoảng cách giữa các phần tử là 20px.*/
         }
 
-        nav ul li {
-            font-size: .8em;
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            position: relative;
+        nav ul li {/*phần tử li bên trong ul của nav.*/
+            font-size: .8em; /*cỡ chữ*/
+            text-transform: uppercase;/*Chuyển đổi chữ thường thành chữ in hoa.*/
+            letter-spacing: .1em;/*Khoảng cách giữa các chữ cái là 0.1em.*/
+            position: relative;/*Đặt vị trí tương đối để hỗ trợ các phần tử con tuyệt đối.*/
         }
 
-        nav ul li a {
-            display: block;
-            border: none;
-            padding: .5em 1em;
-            border-radius: .5em;
-            margin: .25em;
-            text-decoration: none;
-            color: #000;
+        nav ul li a {/*phần tử a bên trong li của nav*/
+            display: block;/*Hiển thị phần tử dưới dạng khối*/
+            border: none;/*bỏ viền*/
+            padding: .5em 1em;/*Thêm khoảng đệm 0.5em trên dưới và 1em trái phải.*/
+            border-radius: .5em;/*Bo tròn các góc với bán kính 0.5em.*/
+            margin: .25em;/*Thêm khoảng cách ngoài 0.25em.*/
+            text-decoration: none;/*loại bỏ gạch chân*/
+            color: #000;/*màu đen*/
         }
 
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #8ABDE8;
-            border: 1px solid #ccc;
-            padding: 10px;
-            list-style-type: none;
-            z-index: 1;
-            width: 200px; /* Tăng độ rộng của ô thả xuống */
+        nav ul li ul {/*phần tử ul con bên trong li của nav.*/
+            display: none;/*Ẩn phần tử thả xuống*/
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: 100%; /*Đặt phần tử con phía dưới phần tử cha.*/
+            left: 0;/*Căn trái phần tử con với phần tử cha.*/
+            background-color: #8ABDE8;/*màu nền thả xuống*/
+            border: 1px solid #ccc;/*Thêm viền màu xám nhạt.*/
+            padding: 10px;/*Thêm khoảng đệm 10px.*/
+            list-style-type: none;/*Loại bỏ dấu đầu dòng của danh sách "."*/
+            z-index: 1;/* Đảm bảo phần tử nằm trên các phần tử khác.*/
+            width: 200px; /* Độ rộng của ô thả xuống */
         }
 
-        nav ul li:hover ul {
-            display: block;
+        nav ul li:hover ul { /*Khi phần tử li được di chuột qua, phần tử ul con sẽ được hiển thị.*/
+            display: block;/*Hiển thị phần tử dưới dạng khối.*/
         }
 
-        nav ul li ul li {
-            text-transform: none;
-            letter-spacing: normal;
-            font-size: 0.7em;
-            font-family: verdana, sans-serif;
+        nav ul li ul li {/*phần tử li bên trong ul con của nav.*/
+            text-transform: none;/*k đổi phông chữ*/
+            letter-spacing: normal;/*Khoảng cách giữa các chữ cái bình thường.*/
+            font-size: 0.7em;/*kích cỡ chữ*/
+            font-family: verdana, sans-serif;/*phông chữ Verdana hoặc sans-serif.*/
         }
 
-        nav ul li ul li a {
-            color: #000;
-            text-decoration: none;
-            padding: .2em .5em;
-            border: none;
-            border-radius: 0;
-            display: block;
-            font-family: verdana, sans-serif;
-            font-size: 1.5em;
+        nav ul li ul li a {/*phần tử a bên trong li của ul con.*/
+            color: #000;/*màu chữ đen*/
+            text-decoration: none;/*bỏ gạch chân*/
+            padding: .2em .5em;/*khoảng đệm 0.2em trên dưới và 0.5em trái phải.*/
+            border: none;/*Loại bỏ viền*/
+            border-radius: 0;/*k bo góc viền*/
+            display: block;/*phần tử dưới dạng khối*/
+            font-family: verdana, sans-serif;/*phông chữ Verdana hoặc sans-serif.*/
+            font-size: 1.5em;/* cỡ chữ*/
         }
 
-        nav ul li ul li a:hover {
-            background-color: #8ABDE8;
-            color: #fff;
+        nav ul li ul li a:hover { /* phần tử a được di chuột qua, màu nền và màu chữ thay đổi.*/
+            background-color: #8ABDE8;/*màu nền thay khi lướt qua*/
+            color: #fff;/*màu chữ thay khi lướt qua*/
         }
+
+
+
+        /*áp dụng css này khi chiều rộng màn hình <=767px */
 
         @media screen and (max-width: 767px) {
+            /* Hiển thị nút chuyển đổi navbar.*/
             .navbar-toggler {
                 display: block;
             }
+
+            /*Ẩn ul và sắp xếp các phần tử con theo cột, không có khoảng cách.*/
 
             nav ul {
                 display: none;
@@ -154,32 +160,49 @@
                 gap: 0;
             }
 
+            /*Hiển thị ul khi có lớp show.*/
+
             nav ul.show {
                 display: flex;
             }
 
+            /*Ẩn ul con khi phần tử li được di chuột qua.*/
+
             nav ul li:hover ul {
                 display: none;
             }
+
+            /*Hiển thị ul con khi có lớp show.*/
 
             nav ul li ul.show {
                 display: block;
             }
         }
 
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 768px*/
+
         @media screen and (min-width: 768px) {
+
+            /*Ẩn nút chuyển đổi navbar.*/
             .navbar-toggler {
                 display: none;
             }
+
+            /*Hiển thị ul và sắp xếp các phần tử con theo hàng.*/
 
             nav ul {
                 display: flex;
             }
 
+            /*Ẩn ul con khi có lớp show.*/
+
             nav ul li ul.show {
                 display: none;
             }
         }
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 600px.*/
 
         @media screen and (min-width: 600px) {
             header p {
@@ -187,7 +210,11 @@
                 margin-top: -1.5em;
                 font-size: 1.2em;
             }
+            /*Hiển thị p trong header, đặt margin trên là -1.5em và kích thước chữ là 1.2em.*/
         }
+
+
+        /*Áp dụng các quy tắc CSS khi chiều rộng màn hình lớn hơn hoặc bằng 940px.*/
 
         @media screen and (min-width: 940px) {
             header h1 {
@@ -195,64 +222,74 @@
                 margin-top: -0.2em;
                 font-size: 3em;
             } 
+            /*Hiển thị h1 trong header, đặt margin trên là -0.2em và kích thước chữ là 3em.*/
         }
 
         /* Existing CSS */
         /* Additional CSS for search and cart */
+        /* Thiết lập các thuộc tính cho container của tìm kiếm và giỏ hàng.*/
         .search-cart-container {
-            position: fixed;
-            top: 15px;
+            position: fixed;/*Đặt vị trí cố định khi di chuyển trang*/
+            top: 15px; /*Cách trên 15px.*/
             right: 15px; /* Di chuyển một chút sang trái */
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            display: flex;/* Sử dụng Flexbox để căn chỉnh các phần tử con.*/
+            align-items: center;/*Căn giữa các phần tử con theo chiều dọc.*/
+            gap: 20px;/*khoảng cách giữa tìm kiếm và giỏ hàng*/
             z-index: 1000; /* Đảm bảo nó ở trên các phần tử khác */
         }
 
         .search-container, .cart-container {
-            position: relative;
+            position: relative;/*Đặt vị trí tương đối*/
         }
 
         .search-container a, .cart-container a {
             color: #13538A; /* Đặt màu cho biểu tượng */
         }
 
+        /*Thiết lập các thuộc tính cho input của tìm kiếm*/
+
         .search-container input {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            z-index: 2;
-            width: 200px;
-            padding: 5px;
-            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn */
-            border-radius: 5px;
+            display: none;/*ẩn search...*/
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: 100%;/*search dưới nút tìm kiếm*/
+            right: 0;/*căn phải phần tử con với phần tử cha*/
+            z-index: 2;/* Đảm bảo phần tử nằm trên các phần tử khác: search... đè lên nền*/
+            width: 200px;/*độ rông*/
+            padding: 5px;/*khoảng đêm*/
+            border: 1px solid #ccc; /* Thêm viền để dễ nhìn hơn viền đen cho search...*/
+            border-radius: 5px; /*Bo tròn các góc với bán kính 5px.*/
         }
+
+        /*thiết lập biểu tượng giỏ hàng*/
 
         .cart-icon {
             position: relative;
-            font-size: 1.5em;
+            font-size: 1.5em;/* Kích thước biểu tượng là 1.5em.*/
         }
 
+        /*Thiết lập thuộc tính cho số hiện ở giỏ hàng*/
+
         .cart-counter {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #ED6C6C;
-            border-radius: 50%;
-            padding: 0px 5px;
-            font-size: 0.8em;
+            position: absolute;/*Đặt vị trí tuyệt đối*/
+            top: -10px; /*Đặt phần tử cách trên 10px.*/
+            right: -10px;/*Đặt phần tử cách phải 10px*/
+            background-color: #ED6C6C;/*màu nền cam*/
+            border-radius: 50%;/*Bo tròn các góc với bán kính 50%.*/
+            padding: 0px 5px;/*đệm 0px trên dưới và 5px trái phải.*/
+            font-size: 0.8em;/*cỡ số*/
         }
         
     </style>
     <style>
+
+        /*tạo hình tròn chỗ biểu tượng màu sắc*/
         .color-circle {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
+            display: inline-block; /*nằm trên cùng dòng - có kích thước cụ thể*/
+            width: 20px; /*rộng*/
+            height: 20px; /*cao*/
             border-radius: 50%;
             margin-right: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #ccc;/*viền*/
         }
 
         .navy-circle {
@@ -264,13 +301,18 @@
         }
 
 
+
+        /*Hình ảnh trong carousel sẽ chiếm toàn bộ chiều rộng của khung chứa và có góc bo tròn 8px.*/
         .carousel-inner img {
             width: 100%;
             border-radius: 8px;
         }
 
+
+        /*Tạo khung chứa thông tin sản phẩm với đệm bên trong, góc bo tròn và đổ bóng nhẹ.*/
+
         .product-info-container {
-            padding: 20px;
+            padding: 20px; /*lùi viền*/
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -281,6 +323,8 @@
         }
 
         /* Custom styles for Section 2 */
+
+        /*Tạo khung chứa chi tiết sản phẩm với đệm, góc bo tròn, đổ bóng và nền màu sáng.*/
         .product-detail-container {
             padding: 20px;
             border-radius: 8px;
@@ -288,23 +332,33 @@
             background-color: #f8f9fa;
         }
 
+        /*Hình ảnh chi tiết sản phẩm chiếm tối đa chiều rộng của khung chứa và có góc bo tròn.*/
+
         .product-detail-image {
             max-width: 100%;
             border-radius: 8px;
         }
 
+
+        /*Đệm phía trên cho nội dung chi tiết sản phẩm*/
+
         .product-detail-content {
             margin-top: 20px;
         }
+
+        /*Đổi màu chữ cho tiêu đề trong chi tiết sản phẩm.*/
 
         .product-detail-content h4 {
             color: #333;
         }
 
         /* Styling for the active content */
+        /* Hiển thị nội dung chi tiết khi có lớp active.*/
         .product-detail-content.active {
             display: block;
         }
+
+        /*Tương tự như .product-info-container trước, nhưng thêm viền dưới gạch ngang màu xám.*/
 
         .product-info-container {
             padding: 20px;
@@ -336,8 +390,10 @@
 
         h3.text-center {
             color: #7BB4E4;
-            /* Set heading color to pink */
+            /* Tiêu đề có màu xanh.*/
         }
+
+        /*Bố trí các phần tử theo hàng ngang, căn giữa các phần tử*/
 
         .row {
             display: flex;
@@ -345,20 +401,29 @@
         }
 
         /* Style for Featured Product Cards */
+
+        /*Tạo hiệu ứng phóng to nhẹ khi di chuột qua*/
         .card {
             transition: transform 0.2s;
             /* Add a smooth transition effect on hover */
         }
+
+       
 
         .card:hover {
             transform: scale(1.05);
             /* Increase size on hover */
         }
 
+         /*Giới hạn chiều cao tối đa của hình ảnh.*/
+
         .card-img-top {
             max-height: 350px;
             /* Set a maximum height for the product images */
         }
+
+        /*Tăng kích thước chữ cho tiêu đề sản phẩm.*/
+
 
         .card-title {
             font-size: 1.2em;
@@ -366,10 +431,14 @@
             margin-bottom: 0.5em;
         }
 
+        /*Đổi màu chữ cho nội dung sản phẩm.*/
+
         .card-text {
             color: #6c757d;
             /* Set a color for the text */
         }
+
+        /*Xóa gạch chân và đổi màu cho liên kết sản phẩm. */ 
 
         .card-link {
             text-decoration: none;
@@ -378,16 +447,21 @@
             /* Set link color */
         }
 
+
+        /*Gạch chân khi di chuột qua.*/
+
         .card-link:hover {
             text-decoration: underline;
             /* Underline on hover */
         }
 
-        /* Style for Rating Stars */
+        /* màu Rating Stars */
         .card-text .rating-star {
             color: #ffc107;
             /* Set rating star color to yellow */
         }
+
+        /*hiệu ứng zoom*/
 
         .zoom {
             overflow: hidden;
@@ -414,7 +488,7 @@
         <p>Happy birdday ! Sale up to 50% of selected items</p>
     </header>
     
-    <nav>
+    <nav> 
         <button class="navbar-toggler py-2 px-3" type="button" onclick="toggleMenu()">
             <span class="fa fa-bars text-primary"></span>
         </button>
@@ -456,8 +530,11 @@
     <script>
         function toggleMenu() {
             const navUl = document.querySelector('nav ul');
-            navUl.classList.toggle('show');
+            navUl.classList.toggle('show'); //để khi thu nhỏ màn hình thì ẩn menu cho vào biểu tương click vào hiện ra menu
         }
+
+
+        /*Hàm này dùng để hiện hoặc ẩn submenu khi người dùng nhấn vào mục menu có submenu.*/
 
         function toggleSubmenu(event) {
             event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
@@ -465,10 +542,12 @@
             submenu.classList.toggle('show');
         }
 
+        /*Hàm này dùng để hiện hoặc ẩn ô tìm kiếm khi người dùng nhấn vào biểu tượng tìm kiếm.*/
+
         function toggleSearch(event) {
             event.preventDefault();
-            const searchInput = event.target.closest('.search-container').querySelector('input');
-            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block';
+            const searchInput = event.target.closest('.search-container').querySelector('input'); //Tìm phần tử input trong search-container.
+            searchInput.style.display = searchInput.style.display === 'block' ? 'none' : 'block'; //Kiểm tra trạng thái hiển thị hiện tại của ô tìm kiếm và chuyển đổi giữa hiển thị (block) và ẩn (none).
         }
     </script>
   <!--End Header 1-->
@@ -512,11 +591,11 @@
                     </div>
                     <a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">Previous</span> <!--trước-->
                     </a>
                     <a class="carousel-control-next" href="#product-slider" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">Next</span> <!--tiếp-->
                     </a>
                 </div>
             </div>
@@ -695,10 +774,18 @@
         <script>
             // JavaScript for zoom effect
             function zoom(event) {
-                var zoomer = event.currentTarget;
-                var img = zoomer.querySelector('img');
+                var zoomer = event.currentTarget; // Lấy phần tử đang được di chuột qua
+                var img = zoomer.querySelector('img'); // Tìm phần tử hình ảnh trong phần tử zoomer
+
+
+                // Tính toán tọa độ x và y của điểm chạm chuột
+
                 x = event.offsetX / zoomer.offsetWidth * 100;
                 y = event.offsetY / zoomer.offsetHeight * 100;
+                
+
+                // Đặt điểm gốc của phép biến đổi transform
+
                 img.style.transformOrigin = x + '% ' + y + '%';
             }
         </script>
